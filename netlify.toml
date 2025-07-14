@@ -1,26 +1,15 @@
-# This configuration is at the root of the repository.
+# This configuration assumes it lives at the repository root
+# and that the Netlify UI build settings are BLANK.
 
 [build]
-  # The "base" directory tells Netlify to change into this folder before running any commands.
-  base = "cozy-home-blog copy"
+  # Tell Netlify where the final, built site will be,
+  # relative to the repository root.
+  publish = "cozy-home-blog copy/public"
 
-  # The "publish" directory is relative to the "base" directory.
-  publish = "public"
-
-  # The build command will be run from inside the "base" directory.
-  command = "npm run build"
-
-# This is the new section that forces a build for CMS commits.
-[build.processing]
-  # We use a dummy processing block like 'css' as a vehicle for the 'ignore' command.
-  # This doesn't actually process your CSS; it just gives us access to the ignore hook.
-  [build.processing.css]
-    # The 'ignore' command tells Netlify WHEN TO SKIP the build.
-    # We are telling it to skip the build UNLESS the latest commit message contains "Update Cozy Stories".
-    # Netlify CMS uses a standard commit message format like:
-    # "Update Cozy Stories “my-new-post”" or "Create Cozy Stories “another-post”"
-    # The '!' at the beginning inverts the logic: "DO NOT skip if this is true".
-    ignore = "! git log -1 --pretty=%B | grep -q \"Update Cozy Stories\" || git log -1 --pretty=%B | grep -q \"Create Cozy Stories\""
+  # Define the full command to build the site.
+  # 1. cd into the project sub-folder.
+  # 2. Run the build script.
+  command = "cd 'cozy-home-blog copy' && npm run build"
 
 # This rule makes sure that the Netlify CMS admin panel works correctly.
 [[redirects]]
