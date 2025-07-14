@@ -2,7 +2,7 @@
 title: A Warm Cup of Tea on a Chilly Evening
 date: 2023-11-01
 description: Simple joys, like a steaming mug and a good book, can make any evening cozy.
-image: /assets/images/evening-tea.jpg # <--- If you add an image!
+image: /assets/images/evening-tea.jpg
 imageAlt: A cup of tea steaming on a wooden table with a book
 tags:
   - tea
