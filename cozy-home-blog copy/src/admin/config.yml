@@ -3,7 +3,7 @@ backend:
   branch: main # Branch where your content is stored. Change to 'master' if that's your default.
 
 publish_mode: editorial_workflow # Recommended for review process, set to 'simple' for direct publish
-media_folder: "public/assets/uploads" # Folder where uploaded files will be stored
+media_folder: "cozy-home-blog copy/public/assets/uploads" # Folder where uploaded files will be stored
 public_folder: "/assets/uploads" # The path to the folder on your deployed site
 
 collections:
