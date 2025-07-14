@@ -37,6 +37,7 @@ body {
     background-color: var(--color-background);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Cursor is now controlled by JavaScript (main.js) */
 }
 
 /* Typography */
@@ -278,59 +279,78 @@ a:hover {
     color: var(--color-secondary);
 }
 
-/* Blog Post (Individual) */
+/* Blog Post (Individual) - EMO/DARK THEME */
 .blog-post {
-    background-color: white;
+    background-color: #1a1a1a; /* Very dark grey/black background */
+    color: #e0e0e0; /* Light grey text for high contrast */
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 15px var(--color-shadow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Deeper, darker shadow */
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
+    border: 1px solid #444444; /* Subtle dark border */
+    /* Optional: Add a subtle grunge texture if you have an image: */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/subtle-dark-texture.jpg'); */
+    /* background-blend-mode: multiply; */
 }
 
 .blog-post .post-date {
     display: block;
     font-size: 0.95rem;
-    color: #6a6a6a;
+    color: #b0b0b0; /* Muted grey for date */
     margin-bottom: var(--spacing-sm);
     font-weight: 600;
+    font-family: var(--font-body); /* Keep consistent body font */
 }
 
 .blog-post .post-title {
+    font-family: var(--font-heading); /* Use existing heading font */
     font-size: 3rem;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-primary);
+    color: #d63333; /* Strong, deep red for titles */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* More pronounced shadow for depth */
+    letter-spacing: 0.05em; /* Slight letter spacing for impact */
+    text-transform: uppercase; /* For a starker, more 'emo' look */
 }
 
 .blog-post .post-image {
     margin-bottom: var(--spacing-lg);
     border-radius: var(--border-radius-md);
     overflow: hidden;
+    border: 2px solid #555555; /* Slightly thicker border around image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for image */
 }
 
 .blog-post .post-image img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: var(--border-radius-md);
+    /* Maintain border-radius from parent */
 }
 
 .blog-post .post-image figcaption {
     font-size: 0.9rem;
-    color: #888;
+    color: #a0a0a0; /* Grey for figcaption */
     text-align: center;
     margin-top: var(--spacing-xs);
+    font-family: var(--font-body);
 }
 
 .blog-post .post-content {
+    font-family: var(--font-body); /* Ensure body text uses defined font */
     font-size: 1.1rem;
     line-height: 1.8;
+    color: #e0e0e0; /* Ensure body text is light */
 }
 
 .blog-post .post-content h2,
 .blog-post .post-content h3 {
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading); /* Use existing heading font */
+    margin-top: var(--spacing-xl); /* More space above subheadings */
+    margin-bottom: var(--spacing-md);
+    color: #d63333; /* Same strong red for subheadings */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    text-transform: uppercase; /* Consistent stark look */
 }
 
 .blog-post .post-content p {
@@ -341,22 +361,46 @@ a:hover {
 .blog-post .post-content ol {
     margin-left: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
+    list-style-type: square; /* Emo often likes squares or dashes */
+    color: #e0e0e0; /* Ensure list items are light */
 }
 
 .blog-post .post-content li {
     margin-bottom: var(--spacing-xs);
 }
 
+/* Styling for bold and emphasized text within the post content */
+.blog-post .post-content strong {
+    color: #ffaaaa; /* Lighter red to highlight strong text */
+}
+
+.blog-post .post-content em {
+    color: #aaaaaa; /* Muted grey for emphasis */
+}
+
+/* Back to home link styling */
 .back-to-home {
     display: inline-block;
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
     font-weight: 600;
-    color: var(--color-primary);
+    color: #d63333; /* Strong red for back link */
+    text-decoration: underline; /* Emo often uses underlines */
 }
 
 .back-to-home:hover {
-    color: var(--color-secondary);
+    color: #ffffff; /* White on hover for back link */
+    text-decoration: none; /* Remove underline on hover for cleaner look */
+}
+
+/* Links within the post content */
+.blog-post .post-content a {
+    color: #ff8888; /* Slightly lighter red for links in content */
+    text-decoration: underline;
+}
+.blog-post .post-content a:hover {
+    color: #ffffff; /* White on hover for links in content */
+    text-decoration: none;
 }
 
 /* About Section */
@@ -429,12 +473,13 @@ a:hover {
         font-size: 2rem;
     }
 
-    .blog-post {
-        padding: var(--spacing-lg);
-    }
-
+    /* Adjustments for emo post on smaller screens if needed */
     .blog-post .post-title {
         font-size: 2rem;
+    }
+
+    .blog-post {
+        padding: var(--spacing-lg);
     }
 
     .about-section {
@@ -458,6 +503,7 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
+    /* Adjustments for emo post on smaller screens if needed */
     .blog-post .post-title {
         font-size: 1.8rem;
     }
