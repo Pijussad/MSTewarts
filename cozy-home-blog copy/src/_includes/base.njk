@@ -19,6 +19,24 @@
     </main>
 
     {% include "footer.njk" %}
+    
+    {# === IMPORTANT ADDITION FOR NETLIFY IDENTITY WIDGET === #}
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            // If there's no user logged in, but we have an invite token, open the login/signup modal
+            // This is crucial for free tier where email template cannot be customized to go to /admin/
+            if (window.location.hash && window.location.hash.includes("invite_token")) {
+              window.netlifyIdentity.open();
+            }
+          }
+        });
+      }
+    </script>
+    {# ======================================================== #}
+
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
