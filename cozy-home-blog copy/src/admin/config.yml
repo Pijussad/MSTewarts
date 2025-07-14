@@ -1,39 +1,5 @@
 backend:
   name: git-gateway
-  branch: main # Branch where your content is stored. Change to 'master' if that's your default.
-
-publish_mode: editorial_workflow # Recommended for review process, set to 'simple' for direct publish
-media_folder: "cozy-home-blog copy/public/assets/uploads" # Folder where uploaded files will be stored (ALREADY CORRECT)
-public_folder: "/assets/uploads" # The path to the folder on your deployed site (REMAINS AS IS)
-
-collections:
-  - name: "postsYou got" # Used in routes, e.g., /admin/#/collections/posts
-    label: "Cozy Stories" # The name in the UI
-    # === CORRECTED LINE BELOW ===
-    folder: "cozy-home-blog it!
-
-The only line you need to change in that `config.yml`You're doing copy/src/_posts" # The path to the folder where files are stored (NOW POINTS INSIDE THE BASE DIRECTORY)
-    # ============================
-    create: true # Allow users to create new documents in this collection
-    slug block is the `folder` path for your `posts` collection.
-
-Here's the corrected version:
-
-```yaml
-backend:
-  name: git-gateway
-  branch: main # Branch where your content is stored. Change to ' great! You just need to change **one line** in that `config.yml`: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template: YYYY-MM-DD-title.md
-    editor:
-      preview: false # Disable live preview for simplicity (can be enabledmaster' if that's your default.
-
-publish_mode: editorial_workflow # Recommended for review process, set to 'simple' for direct publish
-media_folder: "cozy-home-blog copy/public/assets to make it work correctly with your "Base directory" setup.
-
-Here's the corrected `src/admin/config.yml` content:
-
-```yaml
-backend:
-  name: git-gateway
   branch: main # Branch where your content if you set up specific preview styles)
     fields: # The fields for each document, usually in front matter and body
       - {label: "Title", name: "title", widget: "string", required: true}/uploads" # Folder where uploaded files will be stored
