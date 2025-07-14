@@ -1,22 +1,17 @@
-# This file tells Netlify how to build your site.
-# It overrides the settings in the Netlify UI.
+# This configuration is at the root of the repository.
 
 [build]
-  # The command to run to build your site.
-  command = "npm run build"
+  # The "base" directory tells Netlify to change into this folder before running any commands.
+  base = "cozy-home-blog copy"
 
-  # The folder to deploy (relative to the root of your project).
+  # The "publish" directory is relative to the "base" directory.
   publish = "public"
 
-  # The functions folder (good to have for the future).
-  functions = "netlify/functions"
+  # The build command will be run from inside the "base" directory.
+  command = "npm run build"
 
+# This rule makes sure that the Netlify CMS admin panel works correctly.
 [[redirects]]
   from = "/admin/*"
-  to = "/admin/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
+  to = "/admin/index.html"
   status = 200
