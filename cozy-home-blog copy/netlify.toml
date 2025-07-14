@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build" # Command to run for building
+  publish = "public"        # Directory to publish
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

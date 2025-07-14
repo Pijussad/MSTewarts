@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: "{{ title }}"
+---
+
+<article class="blog-post">
+    <time datetime="{{ date | date("yyyy-MM-dd") }}" class="post-date">{{ date | date("MMMM dd, yyyy") }}</time>
+    <h1 class="post-title">{{ title }}</h1>
+    {% if image %}
+        <figure class="post-image">
+            <img src="{{ image }}" alt="{{ title }}">
+            {% if imageAlt %}<figcaption>{{ imageAlt }}</figcaption>{% endif %}
+        </figure>
+    {% endif %}
+    <div class="post-content">
+        {{ content | safe }}
+    </div>
+</article>
+<a href="/" class="back-to-home">← Back to all cozy stories</a>

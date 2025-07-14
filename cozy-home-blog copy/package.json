@@ -1,0 +1,18 @@
+{
+  "name": "cozy-home-blog",
+  "version": "1.0.0",
+  "description": "A cozy and comfortable blog template for Netlify.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "dev": "npm run start"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "luxon": "^3.4.3"
+  }
+}
