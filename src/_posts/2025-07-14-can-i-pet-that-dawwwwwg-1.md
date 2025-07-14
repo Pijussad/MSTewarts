@@ -1,6 +1,6 @@
 ---
 title: Can i pet that dawwwwwg??
-date: 2025-07-14
+date: 2025-07-12
 description: Horse went in Portugal
 imageAlt: DOG
 tags:
