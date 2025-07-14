@@ -8,6 +8,7 @@ tags:
   - morning
   - routine
   - comfort
+layout: post.njk
 ---
 
 For me, the day truly begins not when my alarm goes off, but when the aroma of freshly brewed coffee fills the kitchen. It’s a quiet, meditative process that sets the tone for everything that follows.
