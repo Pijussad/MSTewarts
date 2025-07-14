@@ -10,7 +10,7 @@ tags:
   - DOG
 layout: post.njk
 ---
-c﻿razy
+> # c﻿razy
 
 i﻿ was crazy once
 
@@ -33,3 +33,5 @@ r﻿ubber room
 r﻿ubber room filled with rats
 
 rats made me crazy
+
+![]()
