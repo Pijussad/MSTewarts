@@ -1,15 +1,14 @@
-# This configuration assumes it lives at the repository root
-# and that the Netlify UI build settings are BLANK.
+# This configuration assumes it lives at the repository root.
 
 [build]
-  # Tell Netlify where the final, built site will be,
-  # relative to the repository root.
+  # Tell Netlify where the final, built site will be.
   publish = "cozy-home-blog copy/public"
 
   # Define the full command to build the site.
   # 1. cd into the project sub-folder.
-  # 2. Run the build script.
-  command = "cd 'cozy-home-blog copy' && npm run build"
+  # 2. Install dependencies.
+  # 3. Run the build script.
+  command = "cd 'cozy-home-blog copy' && npm install && npm run build"
 
 # This rule makes sure that the Netlify CMS admin panel works correctly.
 [[redirects]]
