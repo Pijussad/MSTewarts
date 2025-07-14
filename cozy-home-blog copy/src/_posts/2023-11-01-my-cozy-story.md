@@ -9,6 +9,7 @@ tags:
   - evening
   - relaxation
   - coziness
+layout: post.njk
 ---
 
 ## The Perfect Wind-Down
