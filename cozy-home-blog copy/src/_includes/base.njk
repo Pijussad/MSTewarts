@@ -20,7 +20,7 @@
 
     {% include "footer.njk" %}
     
-    {# === IMPORTANT ADDITION FOR NETLIFY IDENTITY WIDGET === #}
+    {# === NETLIFY IDENTITY WIDGET SCRIPT (CRUCIAL FOR INVITE/CONFIRMATION) === #}
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
@@ -35,7 +35,7 @@
         });
       }
     </script>
-    {# ======================================================== #}
+    {# ========================================================================= #}
 
     <script src="/assets/js/main.js"></script>
 </body>
