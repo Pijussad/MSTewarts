@@ -1,6 +1,15 @@
+# This file tells Netlify how to build your site.
+# It overrides the settings in the Netlify UI.
+
 [build]
-  command = "npm run build" # Command to run for building
-  publish = "public"        # Directory to publish
+  # The command to run to build your site.
+  command = "npm run build"
+
+  # The folder to deploy (relative to the root of your project).
+  publish = "public"
+
+  # The functions folder (good to have for the future).
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/admin/*"
