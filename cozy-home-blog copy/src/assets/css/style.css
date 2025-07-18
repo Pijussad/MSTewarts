@@ -308,7 +308,7 @@ a:hover {
     font-family: var(--font-heading); /* Use existing heading font */
     font-size: 3rem;
     margin-bottom: var(--spacing-lg);
-    color: #d63333; /* Strong, deep red for titles */
+    color: #000000;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* More pronounced shadow for depth */
     letter-spacing: 0.05em; /* Slight letter spacing for impact */
     text-transform: uppercase; /* For a starker, more 'emo' look */
