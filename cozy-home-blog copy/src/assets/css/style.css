@@ -34,7 +34,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--color-text);
-    background-color: #c9330b;
+    background-color: #b9300b;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* Cursor is now controlled by JavaScript (main.js) */
@@ -42,8 +42,8 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
+    font-family: 'Brush Script MT', cursive;
+    color: #0b94b9;
     margin-bottom: var(--spacing-sm);
     line-height: 1.2;
 }
