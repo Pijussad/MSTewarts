@@ -1,14 +1,14 @@
 /* Basic Reset & Variables */
+/* Basic Reset & Variables */
 :root {
-    --color-primary: #0b94b9;
-    --color-secondary: #0b94b9;
-    --color-text: #0b94b9;
- text-shadow: 0px 0px 10px #000;}
-    --color-background: #000000;
+    --color-primary: #8B4513; /* SaddleBrown - warm, earthy */
+    --color-secondary: #D2B48C; /* Tan - soft, natural */
+    --color-text: #36454F; /* Charcoal - readable, not harsh black */
+    --color-background: #FFF8E1; /* Muted Cream - soft, inviting */
     --color-light-accent: #FAEBD7; /* AntiqueWhite - very light */
     --color-shadow: rgba(0, 0, 0, 0.08);
 
-    --font-heading: 'Brush Script MT', cursive;
+    --font-heading: 'Lora', serif;
     --font-body: 'Nunito', sans-serif;
 
     --spacing-xs: 0.5rem;
