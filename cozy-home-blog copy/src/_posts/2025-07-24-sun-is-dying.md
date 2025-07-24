@@ -8,11 +8,8 @@ tags:
   - Death
 layout: post.njk
 ---
-
 It used to be so alive:
 ![It used to be so alive:(﻿](/assets/uploads/img_20250724_212423.jpg)
-
-![After this you will see sun dying, be afraid](/assets/uploads/img_20250724_220436.jpg)
 
 ![](/assets/uploads/img_20250724_222301.jpg)
 
