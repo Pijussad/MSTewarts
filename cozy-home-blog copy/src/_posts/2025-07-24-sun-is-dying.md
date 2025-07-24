@@ -6,6 +6,7 @@ image: /assets/uploads/img_20250724_223248.jpg
 imageAlt: OH NO:( NOT THE SUN:((((((!!?¿!??!
 tags:
   - Death
+layout: post.njk
 ---
 ![It used to be so alive:(﻿](/assets/uploads/img_20250724_212423.jpg)
 
