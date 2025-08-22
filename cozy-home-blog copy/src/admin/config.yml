@@ -5,18 +5,17 @@ backend:
 publish_mode: editorial_workflow # Recommended for review process, set to 'simple' for direct publish
 media_folder: "cozy-home-blog copy/public/assets/uploads" # Folder where uploaded files will be stored
 public_folder: "/assets/uploads" # The path to the folder on your deployed site
+
 collections:
-  - name: "posts"
-    label: "Cozy Stories"
-    folder: "cozy-home-blog copy/src/_posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  - name: "posts" # Used in routes, e.g., /admin/#/collections/posts
+    label: "Cozy Stories" # The name in the UI
+    folder: "cozy-home-blog copy/src/_posts" # The path to the folder where files are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template: YYYY-MM-DD-title.md
     editor:
-      preview: false
+      preview: false # Disable live preview for simplicity (can be enabled if you set up specific preview styles)
     fields: # The fields for each document, usually in front matter and body
-      # === ADD THIS NEW LINE HERE ===
       - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"}
-      # ==============================
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: true}
       - {label: "Description", name: "description", widget: "text", required: true}
