@@ -508,4 +508,46 @@ a:hover {
     .blog-post .post-title {
         font-size: 1.8rem;
     }
+    /* --- Image Styling within Blog Post Content --- */
+
+.blog-post .post-content img {
+    max-width: 100%; /* Ensures images don't overflow their container */
+    height: auto; /* Maintains aspect ratio when scaling down */
+    display: block; /* Makes image a block element, prevents extra spacing issues */
+    margin: var(--spacing-md) auto; /* Centers the image and adds vertical spacing */
+    border-radius: var(--border-radius-sm); /* Slight rounding, consistent with emo sharpness */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Darker, more pronounced shadow */
+    border: 1px solid var(--emo-border-color); /* Emo accent border */
+    filter: brightness(0.9) contrast(1.1); /* Subtle emo/cyberpunk effect: slightly darker, more contrast */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Optional: Hover effect for images within posts */
+.blog-post .post-content img:hover {
+    filter: brightness(1) contrast(1.2) hue-rotate(5deg); /* Slightly brighter, more contrast, subtle color shift */
+    box-shadow: 0 6px 18px var(--emo-shadow-color); /* Enhanced glow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Adjust featured image (at top of post) for emo style */
+.blog-post .post-image img {
+    border-radius: var(--border-radius-sm); /* Match inner images */
+    border: 1px solid var(--emo-border-color);
+    box-shadow: 0 4px 15px var(--emo-shadow-color);
+    filter: brightness(0.9) contrast(1.1);
+    transition: all 0.3s ease;
+}
+.blog-post .post-image img:hover {
+     filter: brightness(1) contrast(1.2) hue-rotate(5deg);
+     box-shadow: 0 8px 25px var(--emo-shadow-color);
+     transform: translateY(-2px);
+}
+}
+
+/* Also apply emo border to about page image */
+.about-section .about-image {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--emo-border-color);
+    box-shadow: 0 4px 15px var(--emo-shadow-color);
+    filter: brightness(0.9) contrast(1.1);
 }
