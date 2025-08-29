@@ -29,7 +29,7 @@ metadata:
     {% if post.data.description %}
     <summary type="html">{{ post.data.description | safe }}</summary>
     {% endif %}
-    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(post.url) | dump | xmlattr | safe }}</content>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(post.url) | dump | safe }}</content>
   </entry>
   {% endfor %}
 </feed>
