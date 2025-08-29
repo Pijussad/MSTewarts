@@ -1,18 +1,13 @@
----json
-{
-  "permalink": "/feed.xml",
-  "eleventyExcludeFromCollections": true,
-  "metadata": {
-    "title": "{{ site.title }}",
-    "url": "https://mstewarts3.fun",
-    "feedUrl": "https://mstewarts3.fun/feed.xml",
-    "author": {
-      "name": "{{ site.author }}",
-      "email": "grojapijus@gmail.com" {# Your actual Gmail address #}
-    }
-  }
-}
 ---
+permalink: "/feed.xml"
+eleventyExcludeFromCollections: true
+metadata:
+  title: "{{ site.title }}"
+  url: "https://mstewarts3.fun"
+  feedUrl: "https://mstewarts3.fun/feed.xml"
+  author:
+    name: "{{ site.author }}"
+    email: "grojapijus@gmail.com" # YAML allows comments like this!
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
@@ -31,11 +26,9 @@
     <link href="{{ post.url | absoluteUrl(metadata.url) }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ post.url | absoluteUrl(metadata.url) }}</id>
-    {# Include a description for the summary in the feed if it exists #}
     {% if post.data.description %}
     <summary type="html">{{ post.data.description | safe }}</summary>
     {% endif %}
-    {# Include the full content, stripped of HTML if it makes the feed too verbose #}
     <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(post.url) | dump | xmlattr | safe }}</content>
   </entry>
   {% endfor %}
