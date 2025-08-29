@@ -445,20 +445,54 @@ a:hover {
     h2 { font-size: 1.8rem; }
 }
 
-@media (max-width: 480px) {
-    .main-nav ul {
-        flex-direction: column;
-    }
+/* --- Responsive & Emo Styling for Images within Blog Post Content --- */
 
-    .hero-content h2 {
-        font-size: 2rem;
-    }
+.blog-post .post-content img {
+    max-width: 100%; /* CRITICAL: Ensures images do not exceed the width of their container */
+    height: auto;    /* CRITICAL: Maintains aspect ratio when scaling down */
+    display: block;  /* Centers images and prevents inline text wrapping issues */
+    margin: var(--spacing-md) auto; /* Centers the image horizontally and adds vertical space */
 
-    .post-grid {
-        grid-template-columns: 1fr;
-    }
+    /* --- Emo/Dark Theme Styling for Images --- */
+    border-radius: var(--border-radius-sm); /* Slight rounding for consistency */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Darker, more pronounced shadow */
+    border: 1px solid var(--emo-border-color); /* Uses the emo accent border */
+    filter: brightness(0.9) contrast(1.1); /* Subtle emo/cyberpunk visual effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
 
-    .blog-post .post-title {
-        font-size: 1.8rem;
-    }
+/* Optional: Hover effect for images within posts */
+.blog-post .post-content img:hover {
+    filter: brightness(1) contrast(1.2) hue-rotate(5deg); /* Slightly brighter, more contrast, subtle color shift */
+    box-shadow: 0 6px 18px var(--emo-shadow-color); /* Enhanced glow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* --- Ensure Featured Images (at top of post) also get emo styling --- */
+.blog-post .post-image img {
+    max-width: 100%; /* Ensure featured images are also responsive */
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-sm); /* Match inner images */
+    border: 1px solid var(--emo-border-color);
+    box-shadow: 0 4px 15px var(--emo-shadow-color);
+    filter: brightness(0.9) contrast(1.1);
+    transition: all 0.3s ease;
+}
+.blog-post .post-image img:hover {
+     filter: brightness(1) contrast(1.2) hue-rotate(5deg);
+     box-shadow: 0 8px 25px var(--emo-shadow-color);
+     transform: translateY(-2px);
+}
+
+/* --- Also apply emo border to the About page image --- */
+.about-section .about-image {
+    max-width: 100%; /* Ensure about image is responsive */
+    height: auto;
+    display: block;
+    margin: var(--spacing-md) auto;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--emo-border-color);
+    box-shadow: 0 4px 15px var(--color-shadow); /* Using default shadow for about */
+    filter: brightness(0.9) contrast(1.1);
 }
