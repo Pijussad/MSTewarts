@@ -16,5 +16,4 @@
     "luxon": "^3.4.3",
     "@11ty/eleventy-plugin-rss": "^3.0.0"
   }
-  }
 }
