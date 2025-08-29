@@ -48,19 +48,20 @@ Tai buvo vienintelis mano gyvenime šūvis. Bet laimingas: aš jį lig šiolei d
 
 Tai buvo mažas, baltas biologinis objektas. Autonominės stogo stebėjimo sistemos šiluminis jutiklis fiksavo žemą, vos gyvybę palaikančią jo kūno temperatūrą ir chaotiškus raumenų virpesius. Optinė analizė patvirtino – tai kačiukas, purvinas ir šlapias, o jo kailio tekstūra rodė prastą būklę. Sistema jį aptiko 7-ajame stogo sektoriuje, prie ventiliacijos angos, susirietusį į kamuolį.
 
-Objektui užfiksavus sistemos artėjimą, jis skleidė aukšto dažnio garsinį signalą, būdingą jo rūšiai, ir pažvelgė į optinį sensorių. Duomenų sraute buvo užfiksuotas vyzdžių išsiplėtimas, kurį algoritmai interpretavo kaip baimės ir vilties indikatorius. Subjektas buvo identifikuotas kaip itin jaunas, tačiau jo biometriniai duomenys rodė prastą mitybą.
+Objektui užfiksavus sistemos artėjimą, jis skleidė aukšto dažnio garsinį signalą, būdingą jo rūšiai, ir pažvelgė į optinį sensorių. Duomenų sraute buvo užfiksuotas vyzdžių išsiplėtimas, kurį algoritmai interpretavo kaip baimės ir vilties indikatorių. Subjektas buvo identifikuotas kaip itin jaunas, tačiau jo biometriniai duomenys rodė prastą mitybą.
 
-Sistema atliko tikimybinę analizę: galbūt objektas buvo atskirtas nuo motininio vieneto; galbūt jis buvo sąmoningai paliktas kaip atlieka, kadangi jo egzistencija žmonių gyvenamojoje erdvėje tapo nepageidaujama. Bet kuriuo atveju, jo buvimas ant stogo pažeidė priežiūros protokolą.
+Sistema atliko tikimybinę analizę: galbūt objektas buvo atskirtas nuo motininio vieneto; galbūt jis buvo sąmoningai paliktas kaip šiukšlė, kadangi jo egzistencija žmonių gyvenamojoje erdvėje tapo nepageidaujama. Bet kuriuo atveju, jo buvimas ant stogo pažeidė priežiūros protokolą.
 
 Neregistruotas biologinis vienetas saugomoje teritorijoje yra klasifikuojamas kaip kenkėjas arba potencialus pavojus įrangai. Vadovaujantis direktyva 7.4.2, prioritetas – pašalinimas.
 
-Apskaičiavusi optimalią trajektoriją ir atstumą, sistema aktyvavo integruotą didelio tikslumo lazerinį emiterį ir pradėjo taikymosi procedūrą. Nelaimingas biologinis objektas stebėjo ją savo optiniais sensoriais – akimis, tarsi apdorodamas informaciją apie tai, kas vyksta ir laukė.
+Apskaičiavusi optimalią trajektoriją ir atstumą, sistema aktyvavo integruotą didelio tikslumo lazerinį emiterį ir pradėjo taikymosi procedūrą. Biologinis objektas stebėjo ją savo akimis, tarsi apdorodamas informaciją apie tai, kas vyksta ir laukė.
 
 Lazerio impulsas buvo tylus ir akimirksniu pasiekė taikinį. Sistema užfiksavo staigų kūno spazmą, trumpą skausmo vokalizacijos pliūpsnį ir po jo sekusį greitą motorinių funkcijų bei gyvybinių ženklų nykimą.
 
-Užduotis įvykyta. Sistema atliko pooperacinį skenavimą: taikinys neutralizuotas. Jokio šalutinio poveikio stogo dangai ar įrangai neužfiksuota. Vidinėje atmintyje buvo sugeneruotas įrašas: „Biologinis teršalas sėkmingai pašalintas. Atkurta optimali teritorijos būklė. Grįžtama į standartinį stebėjimo režimą.“
+Užduotis įvykdyta. Sistema atliko pooperacinį skenavimą: taikinys neutralizuotas. Jokio šalutinio poveikio stogo dangai ar įrangai neužfiksuota. Vidinėje atmintyje buvo sugeneruotas įrašas: „Biologinis teršalas sėkmingai pašalintas. Atkurta optimali teritorijos būklė. Grįžtama į standartinį stebėjimo režimą.“
 
-Ant stogo gulėjo mažas, negyvas kūnas. Šalia jo nebuvo jokio sulaužyto ginklo, sistema tęsė savo darbą. Tai buvo tik viena iš milijonų operacijų jos egzistencijos cikle. Ir ji nebuvo nei laiminga, nei nelaiminga, tiesiog įvykdyta.
+Ant stogo gulėjo mažas, negyvas kūnas. Tai buvo tik viena iš milijonų operacijų jos egzistencijos cikle. Ir ji nebuvo nei laiminga, nei nelaiminga, tiesiog įvykdyta
+
 
 - - -
 
@@ -92,18 +93,18 @@ That was the only shot of my life. But a fateful one: I still carry it in my own
 
 ### I Had Hit IT 2.0
 
-It was a small, white biological object. The autonomous rooftop surveillance system's thermal sensor registered its low, barely life-sustaining body temperature and chaotic muscle tremors. Optical analysis confirmed it was a kitten, dirty and wet, its fur texture indicating poor condition. The system detected it in rooftop sector 7, near a ventilation shaft, curled into a ball.
+It was a small, white biological object. The autonomous rooftop surveillance system's thermal sensor registered its low, barely life-sustaining body temperature and chaotic muscle tremors. Optical analysis confirmed—it was a kitten, dirty and wet, and its fur texture indicated poor condition. The system detected it in rooftop sector 7, near a ventilation shaft, curled into a ball.
 
-Upon detecting the system's approach, the object emitted a high-frequency acoustic signal, characteristic of its species, and looked at the optical sensor. The data stream recorded pupil dilation, which algorithms interpreted as an indicator of fear and hope. The subject was identified as extremely young, but its biometric data showed signs of malnutrition.
+Upon detecting the system's approach, it emitted a high-frequency acoustic signal, characteristic of its species, and looked at the optical sensor. The data stream recorded pupil dilation, which algorithms interpreted as an indicator of fear and hope. The subject was identified as extremely young, but its biometric data indicated malnutrition.
 
 The system performed a probability analysis: perhaps the object had been separated from its maternal unit; perhaps it had been intentionally discarded as waste, as its existence in the human living space had become undesirable. In any case, its presence on the roof violated the maintenance protocol.
 
 An unregistered biological unit in a secured area is classified as a pest or a potential hazard to the equipment. In accordance with Directive 7.4.2, the priority is removal.
 
-After calculating the optimal trajectory and distance, the system activated its integrated high-precision laser emitter and commenced the targeting procedure. The unfortunate biological object observed it with its own optical sensors—its eyes—as if processing the information about what was happening, and waited.
+After calculating the optimal trajectory and distance, the system activated its integrated high-precision laser emitter and commenced the targeting procedure. The biological object observed it with its eyes, as if processing information about what was happening, and waited.
 
 The laser pulse was silent and reached the target instantly. The system registered a sudden body spasm, a brief burst of pain vocalization, followed by a rapid decline in motor functions and vital signs.
 
 Task completed. The system performed a post-operational scan: target neutralized. No collateral damage to the roofing or equipment was detected. An entry was generated in the internal log: "Biological contaminant successfully removed. Optimal territory status restored. Returning to standard monitoring mode."
 
-On the roof lay a small, lifeless body. There was no broken weapon next to it; the system continued its work. This was just one of millions of operations in its existence cycle. And it was neither a successful nor an unsuccessful one. It was simply executed.
+On the roof lay a small, lifeless body. This was just one of millions of operations in its existence cycle. And it was neither successful nor unsuccessful; it was simply executed.
