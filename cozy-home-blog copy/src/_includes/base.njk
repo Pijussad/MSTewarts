@@ -20,14 +20,12 @@
 
     {% include "footer.njk" %}
     
-    {# === NETLIFY IDENTITY WIDGET SCRIPT (CRUCIAL FOR INVITE/CONFIRMATION) === #}
+    {# === NETLIFY IDENTITY WIDGET SCRIPT === #}
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
-            // If there's no user logged in, but we have an invite token, open the login/signup modal
-            // This is crucial for free tier where email template cannot be customized to go to /admin/
             if (window.location.hash && window.location.hash.includes("invite_token")) {
               window.netlifyIdentity.open();
             }
@@ -35,7 +33,8 @@
         });
       }
     </script>
-    {# ========================================================================= #}
+    
+    {# === MAILERLITE UNIVERSAL SCRIPT === #}
     <script>
         (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
         .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
@@ -43,7 +42,11 @@
         (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
         ml('account', '1766298');
     </script>
-    <!-- End MailerLite Universal -->
+
+    {# === HYVOR TALK SCRIPT LOADER === #}
+    <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
+    
+    {# YOUR MAIN CUSTOM SCRIPT #}
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
