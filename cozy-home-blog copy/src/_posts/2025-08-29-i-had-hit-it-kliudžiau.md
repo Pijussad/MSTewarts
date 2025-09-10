@@ -8,11 +8,13 @@ imageAlt: Jonas Biliūnas (1879 - 1907)
 tags:
   - Literature
 ---
-# The Human Heart and the Cold Logic: A Tale Retold
+# A Tale Retold
 
-Jonas Biliūnas (1879-1907) was a seminal figure in Lithuanian literature, pioneering a lyrical, psychological prose that explored human conscience. His work is celebrated for its empathy, often focusing on themes of social injustice, guilt, and compassion through a deeply personal and autobiographical lens. One of his most poignant short stories, "Kliudžiau" ("I Had Hit It"), explores the birth of remorse after a thoughtless act of cruelty.
+**D﻿id this after seeing** https://youtu.be/UiiqiaUBAL8?si=TTsfmfo6QPVmsSPU 
 
-What happens when we take this deeply human story and retell it from the modern XXI century perspective?
+**Jonas Biliūnas** ([1879](https://lt.wikipedia.org/wiki/1879 "1879") m. [balandžio 11](https://lt.wikipedia.org/wiki/Baland%C5%BEio_11 "Balandžio 11") d. [Niūronyse](https://lt.wikipedia.org/wiki/Ni%C5%ABronys "Niūronys"), [Anykščių valsčius](https://lt.wikipedia.org/wiki/Anyk%C5%A1%C4%8Di%C5%B3_vals%C4%8Dius "Anykščių valsčius"), [Utenos apskritis](https://lt.wikipedia.org/wiki/Utenos_apskritis "Utenos apskritis") – [1907](https://lt.wikipedia.org/wiki/1907 "1907") m. [gruodžio 8](https://lt.wikipedia.org/wiki/Gruod%C5%BEio_8 "Gruodžio 8") d. [Zakopanėje](https://lt.wikipedia.org/wiki/Zakopan%C4%97 "Zakopanė"), [Lenkija](https://lt.wikipedia.org/wiki/Lenkija "Lenkija")) – [XIX a.](https://lt.wikipedia.org/wiki/XIX_am%C5%BEius "XIX amžius") pabaigos ir [XX a.](https://lt.wikipedia.org/wiki/XX_am%C5%BEius "XX amžius") pradžios lietuvių prozininkas, publicistas, lyrinės [prozos](https://lt.wikipedia.org/wiki/Proza "Proza") pradininkas Lietuvoje, visuomenės veikėjas.
+
+[Slapyvardžiai](https://lt.wikipedia.org/wiki/Slapyvardis "Slapyvardis"): *Jonas Anykštėnas, J. Barzdyla, J. Niuronis, Jonas B-nas, Jonas Bežemis, J. Gražys, Jonas Žaltys, Jonelis, Kazys Tauškutis ir kt.*
 
 Below, we present both versions of the story, first in the original Lithuanian, and then in English translation, to explore the change that happened over hundered years.
 
@@ -62,14 +64,13 @@ Užduotis įvykdyta. Sistema atliko pooperacinį skenavimą: taikinys neutralizu
 
 Ant stogo gulėjo mažas, negyvas kūnas. Tai buvo tik viena iš milijonų operacijų jos egzistencijos cikle. Ir ji nebuvo nei laiminga, nei nelaiminga, tiesiog įvykdyta
 
-
 - - -
 
 ## The English Translations
 
 ### I Had Hit It
 
-It was a small white kitten. Its tiny, emaciated body trembled all over from cold and fear: its fur, soaked by the rain and matted with dirt, was all stiff and bristly. I found it outside, crouched by a fence, curled up and miserable. Seeing me, it meowed with such a pitiful voice and looked at me with eyes in which both fear and hope shone.
+It was a small white kitten. Its tiny, emaciated body trembled all over from cold and fear: its fur, soaked by the rain and dirt, was all stiff. I found it outside, crouched by a fence, curled up and miserable. Seeing me, it meowed with such a pitiful voice and looked at me with eyes in which both fear and hope shone.
 
 It was still very, very young, but so withered! Perhaps people had taken it from its mother, perhaps they first wanted to put it in a sack and, carrying it to the river, throw it into the water, but then brought it outside and left it by the fence so it couldn't find its way home and would die of starvation. There was no longer a place for it among people; perhaps this was not the first day it had been cowering here, hungry and cold…
 
