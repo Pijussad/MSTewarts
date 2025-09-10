@@ -16,7 +16,7 @@ tags:
 
 [Slapyvardžiai](https://lt.wikipedia.org/wiki/Slapyvardis "Slapyvardis"): *Jonas Anykštėnas, J. Barzdyla, J. Niuronis, Jonas B-nas, Jonas Bežemis, J. Gražys, Jonas Žaltys, Jonelis, Kazys Tauškutis ir kt.*
 
-Below, we present both versions of the story, first in the original Lithuanian, and then in English translation, to explore the change that happened over hundered years.
+Below, we present both versions of the story, first in the original Lithuanian, and then in English translation.
 
 - - -
 
