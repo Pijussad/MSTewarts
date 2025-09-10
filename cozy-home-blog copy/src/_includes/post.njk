@@ -16,4 +16,14 @@ title: "{{ title }}"
         {{ content | safe }}
     </div>
 </article>
-<a href="/" class="back-to-home">← Back to all cozy stories</a>
+
+{# === Hyvor Talk Comment Section Goes Here === #}
+<div class="comments-section container">
+    <hyvor-talk-comments
+        website-id="14088"
+        page-id="{{ page.url }}"
+    ></hyvor-talk-comments>
+</div>
+{# ========================================== #}
+
+<a href="/" class="back-to-home">&larr; Back to all cozy stories</a>
