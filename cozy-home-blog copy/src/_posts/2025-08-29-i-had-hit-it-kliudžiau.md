@@ -70,7 +70,7 @@ Ant stogo gulėjo mažas, negyvas kūnas. Tai buvo tik viena iš milijonų opera
 
 ### I Had Hit It
 
-It was a small white kitten. Its tiny, emaciated body trembled all over from cold and fear: its fur, soaked by the rain and matted with dirt, was all stiff and bristly. I found it outside, crouched by a fence, curled up and miserable. Seeing me, it meowed with such a pitiful voice and looked at me with eyes in which both fear and hope shone.
+It was a small white kitten. Its tiny, emaciated body trembled all over from cold and fear: its fur, soaked by the rain and dirt, was all stiff. I found it outside, crouched by a fence, curled up and miserable. Seeing me, it meowed with such a pitiful voice and looked at me with eyes in which both fear and hope shone.
 
 It was still very, very young, but so withered! Perhaps people had taken it from its mother, perhaps they first wanted to put it in a sack and, carrying it to the river, throw it into the water, but then brought it outside and left it by the fence so it couldn't find its way home and would die of starvation. There was no longer a place for it among people; perhaps this was not the first day it had been cowering here, hungry and cold…
 
