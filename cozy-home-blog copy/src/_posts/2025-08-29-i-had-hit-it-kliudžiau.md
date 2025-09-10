@@ -2,7 +2,7 @@
 layout: post.njk
 title: I Had Hit It, Kliudžiau
 date: 2025-08-29
-description: Same Biliūnas story retold after 100 years after seeing Palantir ad
+description: Same Biliūnas story retold after seeing Palantir ad
 image: /assets/uploads/jonas_biliūnas.lg1811.jpg
 imageAlt: Jonas Biliūnas (1879 - 1907)
 tags:
@@ -16,7 +16,7 @@ tags:
 
 [Slapyvardžiai](https://lt.wikipedia.org/wiki/Slapyvardis "Slapyvardis"): *Jonas Anykštėnas, J. Barzdyla, J. Niuronis, Jonas B-nas, Jonas Bežemis, J. Gražys, Jonas Žaltys, Jonelis, Kazys Tauškutis ir kt.*
 
-Below, we present both versions of the story, first in the original Lithuanian, and then in English translation, to explore the change that happened over hundered years.
+Below, we present both versions of the story, first in the original Lithuanian, and then in English translation.
 
 - - -
 
