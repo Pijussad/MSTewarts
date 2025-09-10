@@ -12,6 +12,10 @@ tags:
 
 **D﻿id this after seeing** https://youtu.be/UiiqiaUBAL8?si=TTsfmfo6QPVmsSPU 
 
+**Jonas Biliūnas** (April 11, 1879 in Niūronys, Anykščiai parish, Utena county, Lithuania – December 8, 1907 in Zakopane, Poland) – Lithuanian prose writer and publicist of the late 19th and early 20th centuries, pioneer of lyrical prose in Lithuania, public figure.
+
+Pen names: *Jonas Anykštėnas, J. Barzdyla, J. Niuronis, Jonas B-nas, Jonas Bežemis, J. Gražys, Jonas Žaltys, Jonelis, Kazys Tauškutis and others.*
+
 **Jonas Biliūnas** ([1879](https://lt.wikipedia.org/wiki/1879 "1879") m. [balandžio 11](https://lt.wikipedia.org/wiki/Baland%C5%BEio_11 "Balandžio 11") d. [Niūronyse](https://lt.wikipedia.org/wiki/Ni%C5%ABronys "Niūronys"), [Anykščių valsčius](https://lt.wikipedia.org/wiki/Anyk%C5%A1%C4%8Di%C5%B3_vals%C4%8Dius "Anykščių valsčius"), [Utenos apskritis](https://lt.wikipedia.org/wiki/Utenos_apskritis "Utenos apskritis") – [1907](https://lt.wikipedia.org/wiki/1907 "1907") m. [gruodžio 8](https://lt.wikipedia.org/wiki/Gruod%C5%BEio_8 "Gruodžio 8") d. [Zakopanėje](https://lt.wikipedia.org/wiki/Zakopan%C4%97 "Zakopanė"), [Lenkija](https://lt.wikipedia.org/wiki/Lenkija "Lenkija")) – [XIX a.](https://lt.wikipedia.org/wiki/XIX_am%C5%BEius "XIX amžius") pabaigos ir [XX a.](https://lt.wikipedia.org/wiki/XX_am%C5%BEius "XX amžius") pradžios lietuvių prozininkas, publicistas, lyrinės [prozos](https://lt.wikipedia.org/wiki/Proza "Proza") pradininkas Lietuvoje, visuomenės veikėjas.
 
 [Slapyvardžiai](https://lt.wikipedia.org/wiki/Slapyvardis "Slapyvardis"): *Jonas Anykštėnas, J. Barzdyla, J. Niuronis, Jonas B-nas, Jonas Bežemis, J. Gražys, Jonas Žaltys, Jonelis, Kazys Tauškutis ir kt.*
