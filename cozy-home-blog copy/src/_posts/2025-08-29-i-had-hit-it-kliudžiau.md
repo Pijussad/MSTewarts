@@ -2,7 +2,7 @@
 layout: post.njk
 title: I Had Hit It, Kliudžiau
 date: 2025-08-29
-description: Same Biliūnas story retold after 100 years after seeing Palantir ad
+description: Same Biliūnas story retold after seeing Palantir ad
 image: /assets/uploads/jonas_biliūnas.lg1811.jpg
 imageAlt: Jonas Biliūnas (1879 - 1907)
 tags:
