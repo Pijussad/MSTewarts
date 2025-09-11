@@ -25,7 +25,7 @@ This time inductor was a wise but illiterate professor.
 
 “Cigarettes” – that was the thought I myself got after the lecture. Bear in mind not only after lecture, but the entire time of lecture that was my thought.
 
-But I was not alone, I never am. The good friend of mine, who, dear readers, pay attention doesn’t smoke had the same thought: “Cigarettes”. Now explain me, Dear Reader how it is possible that after a lecture person who doesn’t smoke and never smoked wanted cigarettes. What mind sync is this? Is there some exotical mater that transferred it? Is that matter conscientious?
+But I was not alone, I never am. The good friend of mine, who, dear readers, pay attention doesn’t smoke had the same thought: “Cigarettes”. Now explain me, Dear Reader, how it is possible that after a lecture person who doesn’t smoke and never smoked wanted cigarettes. What mind sync is this? Is there some exotical mater that transferred it? Is that matter conscientious?
 
 What are the odds that such thought had arrived to both of our heads independently?
 
