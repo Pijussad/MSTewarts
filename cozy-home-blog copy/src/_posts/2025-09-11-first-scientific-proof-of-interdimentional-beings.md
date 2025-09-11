@@ -34,3 +34,5 @@ We calculated. There are and never were no odds. The only odds that matter are t
 There are beings from another dimensions, but you need small hands in your heart to feel them.
 
 You are allways being listed of. There is no escape. I watch you.
+
+B﻿ye.
