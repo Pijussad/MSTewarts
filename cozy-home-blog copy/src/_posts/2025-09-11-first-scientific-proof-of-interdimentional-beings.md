@@ -14,11 +14,7 @@ tags:
 ---
 The questions: does somebody hear every thought of mine, does someone always watch me from behind, do my thoughts belong to me, are there some strange interdimensional beings that we cannot see, that can punish us with unsurmountable suffering are being raised by everyone, that’s a [normal](https://en.wikipedia.org/wiki/Normal_(chain_store)) human experience.
 
- 
-
 For decades lab in Vilnius was trying to decode signals from different dimensions using modulation and amplification, but after seeing all the wavelengths and hearing all the sounds their effort looked like was for nothing. Until everything changed.
-
- 
 
 The research was conducted in isolated environment of a lecture and by going to the store to buy food, because people are hungry.
 
@@ -26,7 +22,7 @@ So where are the beings?
 
 They appear when strange people induce them.
 
-This time inductor was a wise but not illiterate professor.
+This time inductor was a wise but illiterate professor.
 
 “Cigarettes” – that was the thought I myself got after the lecture. Bear in mind not only after lecture, but the entire time of lecture that was my thought.
 
@@ -38,14 +34,8 @@ We calculated. There are and never were no odds. The only odds that matter are t
 
 There are beings from another dimensions, but you need toung in your heart to lick them.
 
- 
-
 You are allways being listed of. There is no escape. I watch you.
 
- 
-
 Like and subscribe
-
- 
 
 Bye
