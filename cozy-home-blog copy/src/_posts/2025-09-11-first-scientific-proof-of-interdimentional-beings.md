@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: First scientific proof of interdimensional  beings
+title: First scientific proof of interdimensional beings
 date: 2025-09-11
 description: "The questions: does somebody hear every thought of mine, does
   someone always watch me from behind, do my thoughts belong to me, are there
