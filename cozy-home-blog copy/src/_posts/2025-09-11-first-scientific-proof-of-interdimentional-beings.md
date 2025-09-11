@@ -29,9 +29,9 @@ But I was not alone, I never am. The good friend of mine, who, dear readers, pay
 
 What are the odds that such thought had arrived to both of our heads independently?
 
-We calculated. There are and never were no odds. The only odds that matter are the ones that our beloved people say, so I asked your mom, she said 0.
+We calculated. There are and never were no odds. The only odds that matter are the ones that our beloved people say.
 
-There are beings from another dimensions, but you need toung in your heart to lick them.
+There are beings from another dimensions, but you need toung in your heart to feel them.
 
 You are allways being listed of. There is no escape. I watch you.
 
