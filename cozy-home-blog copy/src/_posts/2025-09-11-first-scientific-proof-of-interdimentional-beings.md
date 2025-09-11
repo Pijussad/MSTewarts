@@ -13,7 +13,7 @@ tags:
 ---
 The questions: does somebody hear every thought of mine, does someone always watch me from behind, do my thoughts belong to me, are there some strange interdimensional beings that we cannot see, that can punish us with unsurmountable suffering are being raised by everyone, that’s a [normal](https://en.wikipedia.org/wiki/Normal_(chain_store)) human experience.
 
-For decades lab in Vilnius was trying to decode signals from different dimensions using modulation and amplification, but after seeing all the wavelengths and hearing all the sounds their effort looked like was for nothing. Until everything changed.
+For decades lab in Vilnius was trying to decode signals from different dimensions using modulation and amplification, but after seeing all the wavelengths and hearing all the sounds their effort looked like was for nothing. Until everything changed:(
 
 The research was conducted in isolated environment of a lecture and by going to the store to buy food, because people are hungry.
 
