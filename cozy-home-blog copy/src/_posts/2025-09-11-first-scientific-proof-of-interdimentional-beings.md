@@ -5,9 +5,8 @@ date: 2025-09-11
 description: "The questions: does somebody hear every thought of mine, does
   someone always watch me from behind, do my thoughts belong to me, are there
   some strange interdimensional beings that we cannot see, that can punish us
-  with unsurmountable suffering are being raised by everyone, that’s a
-  [normal](https://en.wikipedia.org/wiki/Normal_(chain_store)) human
-  experience."
+  with unsurmountable suffering are being raised by everyone, that’s a normal
+  human experience."
 image: /assets/uploads/p8710417_i_h8_aa.jpg
 tags:
   - Science
