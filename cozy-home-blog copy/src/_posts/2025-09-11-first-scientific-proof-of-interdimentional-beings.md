@@ -31,7 +31,7 @@ What are the odds that such thought had arrived to both of our heads independent
 
 We calculated. There are and never were no odds. The only odds that matter are the ones that our beloved people say.
 
-There are beings from another dimensions, but you need toung in your heart to feel them.
+There are beings from another dimensions, but you need small hands in your heart to feel them.
 
 You are allways being listed of. There is no escape. I watch you.
 
