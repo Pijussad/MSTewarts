@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: VOTE PLEASE
+title: VOTE PLEASE!!!!!!!!
 date: 2025-09-12
 description: voting machine
 image: /assets/uploads/gettyimages-1548929029-612x612.jpg
