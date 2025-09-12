@@ -2,7 +2,7 @@
 layout: post.njk
 title: VOTE PLEASE
 date: 2025-09-12
-description: voting mashine
+description: voting machine
 tags:
   - cozy
 ---
