@@ -8,4 +8,4 @@ imageAlt: šnja
 tags:
   - cozy
 ---
-![the](/assets/uploads/1000268685.jpg "h")
+![the šnja went wild](/assets/uploads/1000268685.jpg "how did it do that")
