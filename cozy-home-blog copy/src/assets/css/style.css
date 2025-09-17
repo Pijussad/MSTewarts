@@ -1,35 +1,3 @@
-You are asking a brilliant question. It's easy for CSS files to grow and look "crazy," and it's a great instinct to ask if it can be simplified.
-
-The answer is yes, we can simplify it significantly.
-
-While every line of the previous CSS file did something, many rules were duplicated or could be combined. I have gone through your file and refactored it to be much shorter, cleaner, and easier to understand, while keeping the exact same "cozy homepage" and "emo blog post" design.
-
-Why All the CSS is (Broadly) Necessary
-
-Every website's style is built in layers. Your CSS file needs to handle:
-
-Core Setup: A basic reset, fonts, and colors for the whole site.
-
-General Layout: How components like the header, footer, and main content area are structured.
-
-Homepage Components: The special look of the "hero" section and the post cards.
-
-Blog Post Theme: The special "emo/cyberpunk" theme for your "Read More" pages.
-
-Responsive Design: Making sure it all looks good on mobile phones.
-
-The simplified code below still does all of these things, but in a much more efficient way. The biggest savings came from combining all the different image styling rules into one group.
-
-The Simplified and Cleaned style.css File
-
-You can safely replace the entire content of your src/assets/css/style.css file with this much shorter version.
-
-code
-CSS
-download
-content_copy
-expand_less
-
 /* --- Core Setup --- */
 :root {
     /* Main Theme (Cozy) */
@@ -245,5 +213,3 @@ h4 { font-size: 1.4rem; }
     .post-grid { grid-template-columns: 1fr; }
     .blog-post .post-title { font-size: 1.8rem; }
 }
-
-This version is significantly shorter and easier to read, but it will make your website look exactly the same. It's a much better foundation to build on
