@@ -1,12 +1,13 @@
+/* Basic Reset & Variables */
 :root {
-    --color-primary: #9F0000;
-    --color-secondary: #D2122E;
-    --color-text: #cccccc;
-    --color-background: #111111;
-    --color-light-accent: #1a1a1a;
-    --color-shadow: rgba(0, 0, 0, 0.5);
+    --color-primary: #b9300b;
+    --color-secondary: #D2B48C; /* Tan - soft, natural */
+    --color-text: #36454F; /* Charcoal - readable, not harsh black */
+    --color-background: #000000;
+    --color-light-accent: #FAEBD7; /* AntiqueWhite - very light */
+    --color-shadow: rgba(0, 0, 0, 0.08);
 
-    --font-heading: 'Brush Script MT', 'Apple Chancery', cursive;
+    --font-heading: 'Brush Script MT', cursive;
     --font-body: 'Nunito', sans-serif;
 
     --spacing-xs: 0.5rem;
@@ -15,8 +16,8 @@
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
 
-    --border-radius-sm: 3px;
-    --border-radius-md: 5px;
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
 }
 
 *, *::before, *::after {
@@ -33,50 +34,51 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-color: #b9300b;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Cursor is now controlled by JavaScript (main.js) */
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
+    font-family: 'Brush Script MT', cursive;
+    color: #0b94b9;
     margin-bottom: var(--spacing-sm);
     line-height: 1.2;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.4rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.6rem; }
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
 
 p {
     margin-bottom: var(--spacing-sm);
-    color: #a0a0a0;
 }
 
 a {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px var(--color-secondary);
+    color: var(--color-secondary);
 }
 
+/* Utility Classes */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
 
+/* Header, Hero, Homepage Post Cards, Footer */
 .site-header {
     background-color: var(--color-light-accent);
     padding: var(--spacing-md) 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--color-secondary);
 }
 .header-content {
     display: flex;
@@ -85,7 +87,7 @@ a:hover {
 }
 .logo a {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
@@ -99,13 +101,10 @@ a:hover {
     font-weight: 600;
     font-size: 1.1rem;
     color: var(--color-text);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 .main-nav a:hover {
     color: var(--color-primary);
 }
-
 .hero {
     background-image: url('/assets/images/hero-bg.jpg');
     background-size: cover;
@@ -113,14 +112,14 @@ a:hover {
     color: white;
     text-align: center;
     padding: var(--spacing-xl) var(--spacing-md);
-    min-height: 400px;
+    min-height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    border-radius: 0;
+    border-radius: var(--border-radius-md);
     margin-bottom: var(--spacing-xl);
-    border-bottom: 2px solid var(--color-primary);
+    box-shadow: 0 8px 25px var(--color-shadow);
 }
 .hero::before {
     content: '';
@@ -129,8 +128,8 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius-md);
 }
 .hero-content {
     position: relative;
@@ -139,16 +138,14 @@ a:hover {
 }
 .hero-content h2 {
     color: white;
-    font-size: 4rem;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 .hero-content p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #ccc;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
-
 .latest-posts {
     padding: var(--spacing-lg) 0;
     text-align: center;
@@ -157,170 +154,164 @@ a:hover {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-xl);
 }
-
 .post-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
 .post-card {
-    background-color: var(--color-light-accent);
-    border-radius: 0;
+    background-color: white;
+    border-radius: var(--border-radius-md);
     box-shadow: 0 4px 15px var(--color-shadow);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    border: 1px solid #333;
 }
 .post-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px var(--color-primary);
-    border-color: var(--color-primary);
+    box-shadow: 0 8px 25px var(--color-shadow);
 }
 .post-card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    filter: grayscale(80%) contrast(1.1);
-    transition: filter 0.3s ease;
-}
-.post-card:hover .post-card-image {
-    filter: grayscale(0%) contrast(1);
 }
 .post-card-content {
     padding: var(--spacing-md);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    text-align: left;
 }
 .post-card-date {
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 0.9rem;
+    color: #6a6a6a;
     font-weight: 600;
-    text-transform: uppercase;
 }
 .post-card-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     flex-grow: 1;
 }
-.post-card-title a { color: var(--color-text); }
-.post-card-title a:hover { color: var(--color-primary); }
-.post-card-excerpt { font-size: 1rem; color: #999; }
+.post-card-title a { color: var(--color-primary); }
+.post-card-title a:hover { color: var(--color-secondary); }
+.post-card-excerpt { font-size: 1rem; color: var(--color-text); }
 .read-more {
     display: inline-block;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-weight: 600;
     margin-top: auto;
-    text-transform: uppercase;
-    font-size: 0.9em;
 }
-
+.read-more:hover { color: var(--color-secondary); }
 .site-footer {
-    background-color: #000;
-    color: #666;
-    padding: var(--spacing-lg) 0;
+    background-color: var(--color-text);
+    color: #fff;
+    padding: var(--spacing-md) 0;
     text-align: center;
     font-size: 0.9rem;
     margin-top: var(--spacing-xl);
-    border-top: 1px solid #333;
 }
 
+/* --- Emo/Cyberpunk Styles for Blog Posts ONLY --- */
 .blog-post {
-    background-color: var(--color-light-accent);
-    color: var(--color-text);
-    border: 1px solid var(--color-primary);
-    box-shadow: 0 0 20px rgba(159, 0, 0, 0.3);
+    --emo-bg: #1a1a1a;
+    --emo-text: #e0e0e0;
+    --emo-accent: #6a0dad;
+    --emo-light-text: #a0a0a0;
+    --emo-border-color: #4a076a;
+    --emo-shadow-color: rgba(106, 13, 173, 0.3);
+
+    background-color: var(--emo-bg);
+    color: var(--emo-text);
+    border: 1px solid var(--emo-border-color);
+    box-shadow: 0 0 15px var(--emo-shadow-color);
     border-radius: 0;
     padding: var(--spacing-xl);
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
 }
 .blog-post .post-date {
-    color: #888;
+    color: var(--emo-light-text);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 .blog-post .post-title {
-    color: #fff;
-    text-shadow: 0 0 10px var(--color-primary);
+    color: var(--emo-accent);
+    text-shadow: 0 0 8px var(--emo-shadow-color);
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 3.5rem;
-}
-.blog-post .post-content {
-    font-size: 1.1rem;
-    line-height: 1.9;
 }
 .blog-post .post-content h2,
 .blog-post .post-content h3 {
-    color: var(--color-primary);
-    border-bottom: 1px dashed var(--color-primary);
-    padding-bottom: 5px;
+    color: var(--emo-accent);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 5px;
 }
 .blog-post .post-content a {
-    color: var(--color-secondary);
-    border-bottom: 1px dotted var(--color-secondary);
+    color: var(--emo-accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--emo-accent);
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 .blog-post .post-content a:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-background);
+    color: var(--emo-bg);
+    background-color: var(--emo-accent);
     border-bottom-color: transparent;
 }
-.blog-post .post-content strong {
-    color: #fff;
-}
-.blog-post .post-content em {
-    color: #aaa;
-    font-style: italic;
-}
 .back-to-home {
-    color: var(--color-text);
-    border: 1px solid var(--color-text);
+    color: var(--emo-text);
+    border: 1px solid var(--emo-light-text);
     padding: 8px 15px;
-    border-radius: 0;
+    border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
     text-transform: uppercase;
 }
 .back-to-home:hover {
-    background-color: var(--color-primary);
-    color: #fff;
-    border-color: var(--color-primary);
+    background-color: var(--emo-accent);
+    color: var(--emo-bg);
+    border-color: var(--emo-accent);
 }
 
+/* --- Image Styling (Featured and In-Post) --- */
 .blog-post .post-content img,
 .blog-post .post-image img,
 .about-section .about-image {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: var(--spacing-md) auto;
-    border-radius: 0;
-    border: 2px solid #444;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-    filter: grayscale(50%) contrast(1.2) brightness(0.9);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--emo-border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    filter: brightness(0.9) contrast(1.1);
     transition: all 0.3s ease;
+}
+.blog-post .post-content img,
+.about-section .about-image {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
 }
 .blog-post .post-content img:hover,
 .blog-post .post-image img:hover {
-    filter: grayscale(0%) contrast(1) brightness(1);
-    box-shadow: 0 0 15px var(--color-primary);
-    border-color: var(--color-primary);
+    filter: brightness(1) contrast(1.2) hue-rotate(5deg);
+    box-shadow: 0 6px 18px var(--emo-shadow-color);
+    transform: translateY(-2px);
 }
 
+/* --- About Section --- */
 .about-section {
-    background-color: var(--color-light-accent);
-    color: var(--color-text);
+    background-color: white;
     padding: var(--spacing-xl);
-    border: 1px solid #333;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px var(--color-shadow);
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
     text-align: center;
 }
 .about-section h1 {
     font-size: 3rem;
-    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
 }
 .about-section p {
     max-width: 800px;
@@ -330,6 +321,7 @@ a:hover {
     line-height: 1.8;
 }
 
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -341,10 +333,13 @@ a:hover {
         justify-content: center;
     }
     .hero-content h2 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+    .latest-posts h3 { font-size: 2rem; }
     .blog-post { padding: var(--spacing-lg); }
-    .blog-post .post-title { font-size: 2.5rem; }
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
+    .blog-post .post-title { font-size: 2rem; }
+    .about-section { padding: var(--spacing-lg); }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
 }
 
 @media (max-width: 480px) {
@@ -353,5 +348,5 @@ a:hover {
     }
     .hero-content h2 { font-size: 2rem; }
     .post-grid { grid-template-columns: 1fr; }
-    .blog-post .post-title { font-size: 2rem; }
+    .blog-post .post-title { font-size: 1.8rem; }
 }
