@@ -8,6 +8,10 @@ imageAlt: People peacefully sitting on a bench
 tags:
   - cozy
 ---
+\
+\
+\
+\
 List:\
 \
 Open air cinema
