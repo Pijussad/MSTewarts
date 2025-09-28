@@ -27,21 +27,16 @@ module.exports = function(eleventyConfig) {
         else { console.warn(`[Eleventy Date Filter] Invalid date input or format: ${dateInput}`); return dateInput; }
     });
 
-    // === CORRECTED 'posts' COLLECTION FOR HOMEPAGE SORTING ===
+    // Collection of posts for the blog (sorted newest to oldest)
     eleventyConfig.addCollection("posts", function(collectionApi) {
-        // Get all posts and sort them from newest to oldest
-        return collectionApi.getFilteredByGlob("src/_posts/*.md").sort(function(a, b) {
-            return b.date - a.date;
-        });
+        return collectionApi.getFilteredByGlob("src/_posts/*.md").sort((a, b) => b.date - a.date);
     });
 
-    // Collection of posts for the RSS feed (filters out future dates and sorts)
+    // Collection of posts for the RSS feed (filters out future dates and sorts newest to oldest)
     eleventyConfig.addCollection("postsForRss", function(collectionApi) {
         return collectionApi.getFilteredByGlob("src/_posts/*.md")
             .filter(item => item.data.title && item.date <= new Date())
-            .sort(function(a, b) {
-                return b.date - a.date;
-            });
+            .sort((a, b) => b.date - a.date);
     });
 
     // Main configuration object
