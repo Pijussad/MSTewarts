@@ -23,9 +23,9 @@ metadata:
   {% for post in collections.postsForRss | limit(10) %}
   <entry>
     <title>{{ post.data.title }}</title>
-    <link href="{{ post.url | absoluteUrl(metadata.url) }}"/>
+    <link href="{{ post.data.page.url | url | absoluteUrl(metadata.url) }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
-    <id>{{ post.url | absoluteUrl(metadata.url) }}</id>
+    <id>{{ post.data.page.url | url | absoluteUrl(metadata.url) }}</id>
     {% if post.data.description %}
     <summary type="html"><![CDATA[{{ post.data.description | safe }}]]></summary>
     {% endif %}
