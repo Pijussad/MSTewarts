@@ -14,7 +14,7 @@ title: Welcome Home
 <section id="latest-posts" class="latest-posts">
     <h3>Latest Cozy Stories</h3>
     <div class="post-grid">
-        {% for post in collections.posts | reverse %}
+        {% for post in collections.posts %}
         <article class="post-card">
             <a href="{{ post.url }}">
                 {% if post.data.image %}
