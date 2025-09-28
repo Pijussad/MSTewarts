@@ -6,7 +6,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(pluginRss);
 
     // Passthrough copy for assets and admin folders
-    // IMPORTANT: We are NOT copying the whole 'src' folder
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.addPassthroughCopy("src/admin");
 
@@ -28,14 +27,21 @@ module.exports = function(eleventyConfig) {
         else { console.warn(`[Eleventy Date Filter] Invalid date input or format: ${dateInput}`); return dateInput; }
     });
 
-    // Collection of posts for the blog
+    // === CORRECTED 'posts' COLLECTION FOR HOMEPAGE SORTING ===
     eleventyConfig.addCollection("posts", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("src/_posts/*.md").reverse();
+        // Get all posts and sort them from newest to oldest
+        return collectionApi.getFilteredByGlob("src/_posts/*.md").sort(function(a, b) {
+            return b.date - a.date;
+        });
     });
 
-    // Collection of posts for the RSS feed (filters out future dates)
+    // Collection of posts for the RSS feed (filters out future dates and sorts)
     eleventyConfig.addCollection("postsForRss", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("src/_posts/*.md").filter(item => item.data.title && item.data.date <= new Date()).reverse();
+        return collectionApi.getFilteredByGlob("src/_posts/*.md")
+            .filter(item => item.data.title && item.date <= new Date())
+            .sort(function(a, b) {
+                return b.date - a.date;
+            });
     });
 
     // Main configuration object
