@@ -2,13 +2,20 @@ const { DateTime } = require("luxon");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
+    // Add the RSS plugin
     eleventyConfig.addPlugin(pluginRss);
 
-    // Correct passthrough copy for your project structure
+    // Passthrough copy for assets and admin folders
+    // IMPORTANT: We are NOT copying the whole 'src' folder
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.addPassthroughCopy("src/admin");
 
-    // Date filter (already working)
+    // Custom filter to limit the number of items in a collection
+    eleventyConfig.addFilter("limit", function(arr, limit) {
+        return arr.slice(0, limit);
+    });
+
+    // Date filter for formatting dates
     eleventyConfig.addFilter("date", (dateInput, format = "yyyy") => {
         let dateObj;
         if (dateInput instanceof Date) { dateObj = DateTime.fromJSDate(dateInput); }
@@ -21,31 +28,26 @@ module.exports = function(eleventyConfig) {
         else { console.warn(`[Eleventy Date Filter] Invalid date input or format: ${dateInput}`); return dateInput; }
     });
 
-    // === ADD THIS NEW LIMIT FILTER ===
-    eleventyConfig.addFilter("limit", function(arr, limit) {
-        return arr.slice(0, limit);
-    });
-    // =================================
-
-    // Collections (already working)
-    eleventyConfig.addCollection("posts", function(collection) {
-        return collection.getFilteredByGlob("src/_posts/*.md");
+    // Collection of posts for the blog
+    eleventyConfig.addCollection("posts", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("src/_posts/*.md").reverse();
     });
 
+    // Collection of posts for the RSS feed (filters out future dates)
     eleventyConfig.addCollection("postsForRss", function(collectionApi) {
-        // Return only posts, sorted newest to oldest, and only if they have a 'title' and date is in the past/present
         return collectionApi.getFilteredByGlob("src/_posts/*.md").filter(item => item.data.title && item.data.date <= new Date()).reverse();
     });
 
+    // Main configuration object
     return {
         dir: {
             input: "src",
             output: "public",
-            includes: "_includes"
+            includes: "_includes",
+            data: "_data"
         },
         templateFormats: ["njk", "md", "html"],
         markdownTemplateEngine: "njk",
-        htmlTemplateEngine: "njk",
-        dataTemplateEngine: "njk"
+        htmlTemplateEngine: "njk"
     };
 };
