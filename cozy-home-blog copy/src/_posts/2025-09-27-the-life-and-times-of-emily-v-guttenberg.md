@@ -3,7 +3,7 @@ layout: post.njk
 title: "The Life and Times of Emily V Guttenberg "
 date: 2025-09-27
 description: Read this article now
-image: https://www.gettyimages.pt/detail/foto/crime-scene-imagem-royalty-free/157328547
+image: /assets/uploads/gettyimages-157328547-2048x2048.jpg
 tags:
   - cozy
 ---
