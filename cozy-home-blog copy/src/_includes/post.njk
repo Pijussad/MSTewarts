@@ -17,13 +17,15 @@ title: "{{ title }}"
     </div>
 </article>
 
-{# === Hyvor Talk Comment Section Goes Here === #}
-<div class="comments-section container">
-    <hyvor-talk-comments
-        website-id="14088"
-        page-id="{{ page.url }}"
-    ></hyvor-talk-comments>
-</div>
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="2eb0a1b8-aa01-47dd-9080-9e8406a8fec5"
+  data-page-id="{{ PAGE_ID }}"
+  data-page-url="{{ PAGE_URL }}"
+  data-page-title="{{ PAGE_TITLE }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
 {# ========================================== #}
 
 <a href="/" class="back-to-home">&larr; Back to all cozy stories</a>
