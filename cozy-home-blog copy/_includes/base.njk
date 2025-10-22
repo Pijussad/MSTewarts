@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }} - {% if title %}{{ title }}{% else %}Welcome Home{% endif %}</title>
+    <meta name="description" content="{{ site.description }}">
+
+    <!-- Google Fonts for cozy feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    {% include "header.njk" %}
+
+    <main class="container">
+        {{ content | safe }} {# This is where page-specific content will be injected #}
+    </main>
+
+    {% include "footer.njk" %}
+    
+    {# === NETLIFY IDENTITY WIDGET SCRIPT === #}
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            if (window.location.hash && window.location.hash.includes("invite_token")) {
+              window.netlifyIdentity.open();
+            }
+          }
+        });
+      }
+    </script>
+    
+    {# === MAILERLITE UNIVERSAL SCRIPT === #}
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1766298');
+    </script>
+
+    {# === HYVOR TALK SCRIPT LOADER === #}
+    <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
+    
+    {# YOUR MAIN CUSTOM SCRIPT #}
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
