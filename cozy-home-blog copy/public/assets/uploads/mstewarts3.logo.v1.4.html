@@ -1,0 +1,449 @@
+flash.textContent = 'CLICK FOR POLICE NOW!!!';
+<style>
+/* Make the arrows larger and angle them so they visually point at the centered "police" button.
+    Use !important to override the runtime-injected styles. */
+.police-flash {
+  bottom: 58px !important; /* sit just above the button */
+  font-size: 16px !important;
+  padding: 8px 12px !important;
+  gap: 12px !important;
+}
+
+/* Base for both arrows */
+.police-flash::before,
+.police-flash::after {
+  display: inline-block !important;
+  font-size: 24px !important;     /* make arrows bigger */
+  line-height: 1 !important;
+  width: 1em !important;
+  color: inherit !important;
+  pointer-events: none !important;
+}
+
+/* Left pseudo-element: points right and slightly down toward the button */
+.police-flash::before {
+  content: "➤" !important;
+  margin-right: 10px !important;
+  transform: translateY(6px) rotate(10deg) !important;
+}
+
+/* Right pseudo-element: points left and slightly down toward the button */
+.police-flash::after {
+  content: "◂" !important;
+  margin-left: 10px !important;
+  transform: translateY(6px) rotate(-10deg) !important;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const stage = document.getElementById('stage') || document.body;
+
+    const css = `
+        .police-flash{
+            position:absolute;
+            left:50%;
+            bottom:60px; /* sits just above the police button (button bottom:12px) */
+            transform:translateX(-50%);
+            font-weight:700;
+            font-size:14px;
+            padding:6px 10px;
+            border-radius:6px;
+            pointer-events:none;
+            user-select:none;
+            z-index:21;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            background: rgba(0,0,0,0.18);
+            backdrop-filter: blur(2px);
+            animation: policeFlash 0.8s infinite alternate;
+        }
+        .police-flash::before { content: "→"; margin-right:6px; }
+        .police-flash::after  { content: "←"; margin-left:6px; }
+        @keyframes policeFlash {
+            from { color: red; }
+            to   { color: blue; }
+        }
+    `;
+    const style = document.createElement('style');
+    style.textContent = css;
+    (document.head || document.documentElement).appendChild(style);
+
+    const flash = document.createElement('div');
+    flash.className = 'police-flash';
+    flash.textContent = '!! CLICK FOR POLICE NOW !!';
+    stage.appendChild(flash);
+});
+</script>
+<script>
+(function(){
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = AudioCtx ? new AudioCtx() : null;
+    let sirenNodes = null;
+    let sirenInterval = null;
+    let sirenOn = false;
+
+    function startSiren() {
+        if (!audioCtx || sirenOn) return;
+        if (audioCtx.state === 'suspended') audioCtx.resume().catch(()=>{});
+
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 0.02);
+
+        const osc1 = audioCtx.createOscillator();
+        const osc2 = audioCtx.createOscillator();
+        osc1.type = 'sawtooth';
+        osc2.type = 'sawtooth';
+        osc1.frequency.value = 800;
+        osc2.frequency.value = 1200;
+        osc2.detune.value = -20;
+
+        const merger = audioCtx.createGain();
+        osc1.connect(merger);
+        osc2.connect(merger);
+        merger.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc1.start();
+        osc2.start();
+
+        // alternate ramps to create a wailing siren
+        let up = true;
+        sirenInterval = setInterval(() => {
+            const now = audioCtx.currentTime;
+            osc1.frequency.cancelScheduledValues(now);
+            osc2.frequency.cancelScheduledValues(now);
+            if (up) {
+                osc1.frequency.setValueAtTime(800, now);
+                osc2.frequency.setValueAtTime(1200, now);
+                osc1.frequency.linearRampToValueAtTime(1200, now + 0.5);
+                osc2.frequency.linearRampToValueAtTime(1600, now + 0.5);
+            } else {
+                osc1.frequency.setValueAtTime(1200, now);
+                osc2.frequency.setValueAtTime(1600, now);
+                osc1.frequency.linearRampToValueAtTime(800, now + 0.5);
+                osc2.frequency.linearRampToValueAtTime(1200, now + 0.5);
+            }
+            up = !up;
+        }, 500);
+
+        sirenNodes = { osc1, osc2, gain, merger };
+        sirenOn = true;
+    }
+
+    function stopSiren() {
+        if (!audioCtx || !sirenOn) return;
+        clearInterval(sirenInterval);
+        sirenInterval = null;
+        const { osc1, osc2, gain } = sirenNodes;
+        const now = audioCtx.currentTime;
+        gain.gain.cancelScheduledValues(now);
+        gain.gain.setValueAtTime(gain.gain.value, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+        // allow fade to finish then stop & disconnect
+        setTimeout(() => {
+            try { osc1.stop(); } catch (e) {}
+            try { osc2.stop(); } catch (e) {}
+            try { osc1.disconnect(); } catch (e) {}
+            try { osc2.disconnect(); } catch (e) {}
+            try { gain.disconnect(); } catch (e) {}
+        }, 120);
+        sirenNodes = null;
+        sirenOn = false;
+    }
+
+    // Toggle siren when the "police" button is clicked.
+    // The button is created later in DOMContentLoaded; clicks bubble so this works.
+    document.addEventListener('click', (e) => {
+        if (!e.target) return;
+        if (e.target.id === 'policeBtn') {
+            if (sirenOn) stopSiren(); else startSiren();
+        }
+    });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const stage = document.getElementById('stage') || document.body;
+    const btn = document.createElement('button');
+    btn.id = 'policeBtn';
+    btn.textContent = 'police';
+    Object.assign(btn.style, {
+        position: 'absolute',
+        left: '50%',
+        bottom: '12px',
+        transform: 'translateX(-50%)',
+        padding: '8px 14px',
+        borderRadius: '6px',
+        border: 'none',
+        cursor: 'pointer',
+        background: '#0b69ff',
+        color: '#fff',
+        fontWeight: '600',
+        zIndex: '20',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.6)'
+    });
+    stage.appendChild(btn);
+
+    let timer = null;
+    let state = false;
+    btn.addEventListener('click', () => {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+            btn.style.background = '#0b69ff';
+            return;
+        }
+        timer = setInterval(() => {
+            state = !state;
+            btn.style.background = state ? '#ff1e1e' : '#0b69ff';
+        }, 50);
+    });
+});
+</script>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Moving Icon Window</title>
+    <style>
+        /* Center the "window" in the page */
+        html,body{
+            height:100%;
+            margin:0;
+            background:#222;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+        }
+
+        /* The window / stage with black backdrop */
+        .stage {
+            width: min(90vw, 900px);
+            height: min(70vh, 600px);
+            background: #000;
+            border-radius:8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.5);
+            position:relative;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.04);
+        }
+
+        /* Centered clock */
+        .clock {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: #ddd;
+            background: rgba(255,255,255,0.03);
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight:600;
+            pointer-events: none;
+            user-select: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+        }
+        .clock .label {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-bottom: 6px;
+        }
+        .clock .time {
+            font-size: 20px;
+            letter-spacing: 0.4px;
+        }
+
+        /* Small icon */
+        #icon {
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            padding:8px 10px;
+            background: rgba(255,255,255,0.06);
+            color: #fff; /* initial white text */
+            font-weight:600;
+            font-size:14px;
+            letter-spacing:0.2px;
+            border-radius:6px;
+            pointer-events:none;
+            user-select:none;
+            white-space:nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            transition: color 120ms linear;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage" id="stage">
+        <div class="clock" id="clock">
+            <div class="label">London time in London - Clock</div>
+            <div class="time" id="clockTime">--:--:--</div>
+        </div>
+
+        <div id="icon">MStewarts3.logo</div>
+    </div>
+
+    <script>
+        // Clock showing GMT+2 (adds +2 hours to UTC)
+        (function(){
+            const timeEl = document.getElementById('clockTime');
+            function pad(n){ return n.toString().padStart(2,'0'); }
+            function updateClock(){
+                const now = new Date();
+                // convert local -> UTC, then add 2 hours
+                const utc = new Date(now.getTime() + now.getTimezoneOffset()*60000);
+                const target = new Date(utc.getTime() + 2*60*60*1000);
+                const hh = pad(target.getHours());
+                const mm = pad(target.getMinutes());
+                const ss = pad(target.getSeconds());
+                timeEl.textContent = `${hh}:${mm}:${ss}`;
+            }
+            updateClock();
+            setInterval(updateClock, 250);
+        })();
+
+        // Moving bouncing icon inside the .stage
+        (function(){
+            const stage = document.getElementById('stage');
+            const icon = document.getElementById('icon');
+
+            // speed in pixels per second
+            const SPEED = 220;
+
+            // get bounding sizes
+            function sizes() {
+                return {
+                    stageW: stage.clientWidth,
+                    stageH: stage.clientHeight,
+                    iconW: icon.offsetWidth,
+                    iconH: icon.offsetHeight
+                };
+            }
+
+            // start centered
+            const s = sizes();
+            let x = (s.stageW - s.iconW) / 2;
+            let y = (s.stageH - s.iconH) / 2;
+
+            // random direction (not zero)
+            let angle = (Math.random() * 2 * Math.PI);
+            // ensure not too shallow in any axis
+            if (Math.abs(Math.cos(angle)) < 0.15) angle += 0.2;
+            if (Math.abs(Math.sin(angle)) < 0.15) angle += 0.2;
+
+            let vx = Math.cos(angle) * SPEED;
+            let vy = Math.sin(angle) * SPEED;
+
+            // apply initial position
+            function renderPos() {
+                icon.style.left = x + 'px';
+                icon.style.top = y + 'px';
+                // remove transform center set in CSS, we now use absolute coordinates
+                icon.style.transform = '';
+            }
+            renderPos();
+
+            // random color generator (keeps decent contrast on black background)
+            function randomColor() {
+                // pick bright-ish colors
+                const hue = Math.floor(Math.random()*360);
+                const sat = 70 + Math.floor(Math.random()*30);
+                const light = 50 + Math.floor(Math.random()*10);
+                return `hsl(${hue} ${sat}% ${light}%)`;
+            }
+
+            // simple beep using Web Audio API
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            const audioCtx = AudioCtx ? new AudioCtx() : null;
+            function playBeep(freq = 880, dur = 0.12) {
+                if (!audioCtx) return;
+                // resume if suspended (browsers may require user gesture)
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume().catch(()=>{ /* ignore */ });
+                }
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + dur + 0.02);
+            }
+
+            let lastTime = performance.now();
+            function step(now) {
+                const dt = Math.min(0.05, (now - lastTime) / 1000); // cap dt for big frames
+                lastTime = now;
+
+                const dims = sizes();
+                x += vx * dt;
+                y += vy * dt;
+
+                let bounced = false;
+
+                // left
+                if (x <= 0) {
+                    x = 0;
+                    vx = -vx;
+                    bounced = true;
+                }
+                // right
+                if (x + dims.iconW >= dims.stageW) {
+                    x = dims.stageW - dims.iconW;
+                    vx = -vx;
+                    bounced = true;
+                }
+                // top
+                if (y <= 0) {
+                    y = 0;
+                    vy = -vy;
+                    bounced = true;
+                }
+                // bottom
+                if (y + dims.iconH >= dims.stageH) {
+                    y = dims.stageH - dims.iconH;
+                    vy = -vy;
+                    bounced = true;
+                }
+
+                if (bounced) {
+                    const col = randomColor();
+                    icon.style.color = col;
+                    // optional: vary beep pitch slightly by reading hue from hsl
+                    // extract hue number from the generated HSL string
+                    const hueMatch = col.match(/^hsl\((\d+)/);
+                    const hue = hueMatch ? Number(hueMatch[1]) : 0;
+                    // map hue 0-360 to freq 600-1100
+                    const freq = 600 + (hue / 360) * 500;
+                    playBeep(freq, 0.12);
+                }
+
+                renderPos();
+                requestAnimationFrame(step);
+            }
+
+            // handle resizing to keep icon inside
+            window.addEventListener('resize', () => {
+                const d = sizes();
+                x = Math.max(0, Math.min(x, d.stageW - d.iconW));
+                y = Math.max(0, Math.min(y, d.stageH - d.iconH));
+                renderPos();
+            });
+
+            requestAnimationFrame(step);
+        })();
+    </script>
+</body>
+</html>
