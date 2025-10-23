@@ -116,12 +116,9 @@
     </div>
 
     <script>
-        // Show popup after 5 seconds, only once per session
+        // Show popup after 5 seconds on every page load
         setTimeout(function() {
-            if (!sessionStorage.getItem('emailPopupShown')) {
-                document.getElementById('email-popup-overlay').style.display = 'flex';
-                sessionStorage.setItem('emailPopupShown', 'true');
-            }
+            document.getElementById('email-popup-overlay').style.display = 'flex';
         }, 5000); // 5 seconds
 
         // Close popup when X is clicked
