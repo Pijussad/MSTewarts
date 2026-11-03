@@ -158,12 +158,17 @@ export default async (req) => {
         const sub = await store.get(blob.key, { type: 'json' }).catch(() => null);
         if (sub?.status === 'active') subscribers.push(sub);
       }
-      if (!subscribers.length) {
+      let targets = subscribers;
+      if (Array.isArray(body.emails) && body.emails.length) {
+        const only = new Set(body.emails.map((e) => String(e).trim().toLowerCase()));
+        targets = subscribers.filter((s) => only.has(s.email));
+      }
+      if (!targets.length) {
         return Response.json({ ok: true, id: latest.id, sent: 0, total: 0, failed: [] });
       }
       const from = process.env.NEWSLETTER_FROM || process.env.ZOHO_SMTP_USER;
       const subject = `New story: ${latest.title}`;
-      const results = await Promise.allSettled(subscribers.map(async (sub) => {
+      const results = await Promise.allSettled(targets.map(async (sub) => {
         const unsub = `${SITE.replace(/\/$/, '')}/.netlify/functions/unsubscribe?token=${encodeURIComponent(sub.token)}`;
         const text = `${latest.title}\n\n${latest.summary}\n\nRead it: ${latest.url}\n\nUnsubscribe: ${unsub}`;
         const html = `<p><strong>${escapeHtml(latest.title)}</strong></p>
@@ -182,14 +187,18 @@ export default async (req) => {
       }));
       const sent = results.filter((r) => r.status === 'fulfilled').length;
       const failed = results
-        .map((r, i) => (r.status === 'rejected' ? subscribers[i].email : null))
+        .map((r, i) => (r.status === 'rejected'
+          ? { email: targets[i].email, error: r.reason?.message || String(r.reason) }
+          : null))
         .filter(Boolean);
+      const prev = await store.get('meta:last_sent', { type: 'json' }).catch(() => null);
+      const previousSent = prev?.id === latest.id ? prev.sent || 0 : 0;
       await store.setJSON('meta:last_sent', {
         id: latest.id,
         at: new Date().toISOString(),
-        sent
+        sent: previousSent + sent
       });
-      return Response.json({ ok: true, id: latest.id, sent, total: subscribers.length, failed });
+      return Response.json({ ok: true, id: latest.id, sent, total: targets.length, failed });
     }
 
     return Response.json({ ok: false, error: 'unknown_action' }, { status: 400 });
