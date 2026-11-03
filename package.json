@@ -1,0 +1,7 @@
+{
+  "name": "mstewarts3-newsletter",
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
