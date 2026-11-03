@@ -31,7 +31,8 @@ export default async (req) => {
         });
       }
     }
-    return Response.json({ count: subscribers.length, subscribers });
+    const meta = await store.get('meta:last_sent', { type: 'json' }).catch(() => null);
+    return Response.json({ count: subscribers.length, subscribers, meta });
   }
 
   if (req.method === 'POST') {
@@ -90,6 +91,15 @@ export default async (req) => {
         subject: 'Newsletter test',
         text: 'SMTP is working. New posts will be emailed automatically.',
         html: '<p>SMTP is working. New posts will be emailed automatically.</p>'
+      });
+      return Response.json({ ok: true });
+    }
+
+    if (body.action === 'arm') {
+      await store.setJSON('meta:last_sent', {
+        id: `manual-${Date.now()}`,
+        at: new Date().toISOString(),
+        armed: true
       });
       return Response.json({ ok: true });
     }
