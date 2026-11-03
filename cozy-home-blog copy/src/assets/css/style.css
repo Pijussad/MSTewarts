@@ -495,4 +495,18 @@ a:hover {
     .hero-content h2 { font-size: 2rem; }
     .post-grid { grid-template-columns: 1fr; }
     .blog-post .post-title { font-size: 1.8rem; }
+    #twikoo {
+        padding: 16px;
+    }
+    #twikoo .tk-comment,
+    #twikoo .tk-submit {
+        padding: 14px;
+        margin-bottom: 14px;
+    }
+    #twikoo .tk-content {
+        max-height: none;
+    }
+    #twikoo .tk-row {
+        flex-wrap: wrap;
+    }
 }
