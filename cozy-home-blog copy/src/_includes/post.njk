@@ -112,10 +112,12 @@ title: "{{ title }}"
 
 <style>
   #twikoo { max-width: 100%; overflow-wrap: break-word; }
-  #twikoo .tk-meta-input .tk-input:has(input[name="mail"]),
-  #twikoo .tk-meta-input .tk-input:has(input[name="link"]),
-  #twikoo .tk-meta-input .tk-input:nth-child(2),
-  #twikoo .tk-meta-input .tk-input:nth-child(3) {
+  #twikoo .tk-meta-input > .el-input:nth-child(2),
+  #twikoo .tk-meta-input > .el-input:nth-child(3) {
+    display: none !important;
+  }
+  #twikoo .tk-input-image,
+  #twikoo .tk-submit-action-icon:has(.tk-input-image) {
     display: none !important;
   }
   #twikoo .tk-comments,
