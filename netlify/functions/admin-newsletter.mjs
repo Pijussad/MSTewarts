@@ -64,6 +64,20 @@ export default async (req) => {
       return Response.json({ ok: true, added });
     }
 
+    if (body.action === 'remove' && Array.isArray(body.emails)) {
+      let removed = 0;
+      for (const raw of body.emails) {
+        const email = String(raw || '').trim().toLowerCase();
+        if (!EMAIL_RE.test(email)) continue;
+        const subKey = `sub:${email}`;
+        const existing = await store.get(subKey, { type: 'json' }).catch(() => null);
+        if (existing?.token) await store.delete(`token:${existing.token}`);
+        await store.delete(subKey);
+        removed++;
+      }
+      return Response.json({ ok: true, removed });
+    }
+
     if (body.action === 'test' && body.email) {
       const transport = getTransport();
       if (!transport) {
