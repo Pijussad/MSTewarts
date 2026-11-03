@@ -133,5 +133,35 @@
             }
         });
     </script>
+
+    <script>
+      // Newsletter: submit without leaving the page, show inline confirmation
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('form[action*="api.follow.it/subscription-form"]').forEach(function (form) {
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const input = form.querySelector('input[name="email"]');
+            const button = form.querySelector('button[type="submit"]');
+            const email = input ? input.value.trim() : '';
+            if (!email) { if (input) input.focus(); return; }
+            const original = button ? button.textContent : '';
+            if (button) { button.disabled = true; button.textContent = 'Subscribing...'; }
+            try {
+              const res = await fetch('/.netlify/functions/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+              });
+              const data = await res.json().catch(function () { return {}; });
+              if (!res.ok || !data.ok) throw new Error('failed');
+              form.innerHTML = '<div style="padding:24px;text-align:center;font-family:Arial,sans-serif;color:#000;background:#f6f2ff;border-radius:6px;"><strong>Almost there!</strong><br>Check your inbox and click the confirmation link.</div>';
+            } catch (err) {
+              if (button) { button.disabled = false; button.textContent = original; }
+              alert('Subscription failed. Please try again.');
+            }
+          });
+        });
+      });
+    </script>
 </body>
 </html>
