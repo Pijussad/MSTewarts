@@ -3,6 +3,45 @@ import crypto from 'node:crypto';
 import { getTransport } from './_lib/mailer.mjs';
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+const SITE = process.env.NEWSLETTER_SITE_URL || 'https://mstewarts3.fun';
+
+function decode(s = '') {
+  return s
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"');
+}
+
+function escapeHtml(s = '') {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function getLatest() {
+  const res = await fetch(`${SITE}/feed.xml?ts=${Date.now()}`, {
+    headers: { 'cache-control': 'no-cache' }
+  });
+  if (!res.ok) throw new Error(`feed HTTP ${res.status}`);
+  const xml = await res.text();
+  const match = xml.match(/<entry>([\s\S]*?)<\/entry>/);
+  if (!match) return null;
+  const entry = match[1];
+  const get = (re) => {
+    const m = entry.match(re);
+    return m ? m[1].trim() : '';
+  };
+  return {
+    id: get(/<id>(.*?)<\/id>/),
+    title: decode(get(/<title[^>]*>(.*?)<\/title>/)),
+    summary: decode(get(/<summary[^>]*>(.*?)<\/summary>/) || get(/<content[^>]*>(.*?)<\/content>/)),
+    url: get(/<link[^>]*href="([^"]+)"/)
+  };
+}
 
 function forbidden() {
   return new Response('Forbidden', { status: 403 });
@@ -102,6 +141,55 @@ export default async (req) => {
         armed: true
       });
       return Response.json({ ok: true });
+    }
+
+    if (body.action === 'send-latest') {
+      const transport = getTransport();
+      if (!transport) {
+        return Response.json({ ok: false, error: 'smtp_not_configured' }, { status: 400 });
+      }
+      const latest = await getLatest();
+      if (!latest?.id) {
+        return Response.json({ ok: false, error: 'feed_empty' }, { status: 400 });
+      }
+      const list = await store.list({ prefix: 'sub:' });
+      const subscribers = [];
+      for (const blob of list.blobs || []) {
+        const sub = await store.get(blob.key, { type: 'json' }).catch(() => null);
+        if (sub?.status === 'active') subscribers.push(sub);
+      }
+      if (!subscribers.length) {
+        return Response.json({ ok: true, id: latest.id, sent: 0, total: 0, failed: [] });
+      }
+      const from = process.env.NEWSLETTER_FROM || process.env.ZOHO_SMTP_USER;
+      const subject = `New story: ${latest.title}`;
+      const results = await Promise.allSettled(subscribers.map(async (sub) => {
+        const unsub = `${SITE.replace(/\/$/, '')}/.netlify/functions/unsubscribe?token=${encodeURIComponent(sub.token)}`;
+        const text = `${latest.title}\n\n${latest.summary}\n\nRead it: ${latest.url}\n\nUnsubscribe: ${unsub}`;
+        const html = `<p><strong>${escapeHtml(latest.title)}</strong></p>
+<p>${escapeHtml(latest.summary)}</p>
+<p><a href="${escapeHtml(latest.url)}">Read the full story</a></p>
+<hr>
+<p style="font-size:12px;color:#666"><a href="${escapeHtml(unsub)}">Unsubscribe</a></p>`;
+        await transport.sendMail({
+          from: `"MSTewart's Cozy Corner" <${from}>`,
+          to: sub.email,
+          subject,
+          text,
+          html
+        });
+        return sub.email;
+      }));
+      const sent = results.filter((r) => r.status === 'fulfilled').length;
+      const failed = results
+        .map((r, i) => (r.status === 'rejected' ? subscribers[i].email : null))
+        .filter(Boolean);
+      await store.setJSON('meta:last_sent', {
+        id: latest.id,
+        at: new Date().toISOString(),
+        sent
+      });
+      return Response.json({ ok: true, id: latest.id, sent, total: subscribers.length, failed });
     }
 
     return Response.json({ ok: false, error: 'unknown_action' }, { status: 400 });
