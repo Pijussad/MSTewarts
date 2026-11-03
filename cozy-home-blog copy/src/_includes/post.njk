@@ -117,7 +117,8 @@ title: "{{ title }}"
     display: none !important;
   }
   #twikoo .tk-input-image,
-  #twikoo .tk-submit-action-icon:has(.tk-input-image) {
+  #twikoo .tk-submit-action-icon:has(.tk-input-image),
+  #twikoo .tk-submit-action-icon:not(.OwO):not(.__markdown) {
     display: none !important;
   }
   #twikoo .tk-comments,
@@ -132,9 +133,15 @@ title: "{{ title }}"
 <script>
   function hideTwikooMeta() {
     document.querySelectorAll('#twikoo input[name="mail"], #twikoo input[name="link"]').forEach(function (input) {
-      var row = input.closest('.tk-input');
+      var row = input.closest('.el-input') || input.parentElement;
       if (row) row.style.display = 'none';
     });
+    var imageInput = document.querySelector('#twikoo .tk-input-image');
+    if (imageInput) {
+      var imageIcon = imageInput.previousElementSibling;
+      if (imageIcon && imageIcon.classList.contains('tk-submit-action-icon')) imageIcon.style.display = 'none';
+      imageInput.style.display = 'none';
+    }
   }
   function initTwikoo() {
     if (!window.twikoo) return;
