@@ -111,21 +111,50 @@ title: "{{ title }}"
 </div>
 
 <style>
+  #twikoo { max-width: 100%; overflow-wrap: break-word; }
   #twikoo .tk-meta-input .tk-input:has(input[name="mail"]),
-  #twikoo .tk-meta-input .tk-input:has(input[name="link"]) {
+  #twikoo .tk-meta-input .tk-input:has(input[name="link"]),
+  #twikoo .tk-meta-input .tk-input:nth-child(2),
+  #twikoo .tk-meta-input .tk-input:nth-child(3) {
     display: none !important;
+  }
+  #twikoo .tk-comments,
+  #twikoo .tk-submit,
+  #twikoo .tk-comment {
+    outline: none !important;
+    border-style: solid !important;
   }
 </style>
 <div id="twikoo"></div>
-<script src="https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
+<script src="/assets/js/twikoo.all.min.js"></script>
 <script>
-  twikoo.init({
-    envId: 'https://mstewarts-database.vercel.app',
-    el: '#twikoo',
-    // Only nickname is required; email and website fields are hidden above
-    requiredFields: ['nick'],
-    placeholder: 'Leave your thoughts here... 💭'
-  });
+  function hideTwikooMeta() {
+    document.querySelectorAll('#twikoo input[name="mail"], #twikoo input[name="link"]').forEach(function (input) {
+      var row = input.closest('.tk-input');
+      if (row) row.style.display = 'none';
+    });
+  }
+  function initTwikoo() {
+    if (!window.twikoo) return;
+    twikoo.init({
+      envId: 'https://mstewarts-database.vercel.app',
+      el: '#twikoo',
+      requiredFields: ['nick'],
+      placeholder: 'Leave your thoughts here... 💭',
+      onCommentLoaded: hideTwikooMeta
+    });
+    hideTwikooMeta();
+    setTimeout(hideTwikooMeta, 1200);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTwikoo);
+  } else {
+    initTwikoo();
+  }
+  var twikooRoot = document.getElementById('twikoo');
+  if (twikooRoot) {
+    new MutationObserver(hideTwikooMeta).observe(twikooRoot, { childList: true, subtree: true });
+  }
 </script>
 
 <a href="/" class="back-to-home">&larr; Back to all cozy stories</a>
