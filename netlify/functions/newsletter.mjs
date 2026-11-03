@@ -1,4 +1,7 @@
-const FOLLOWIT_URL = 'https://api.follow.it/subscription-form/L0IvVUp5YldaUDQybSt4NU83STZPNkh4Uzg1Qm12RmxOQkczbEY1V0pmMEFEaG9BOFpFZFFlS2RVVUc1bkNsVUlGa3E0Z3d1SUw4bER5WG1xKzNwOTBpUHFMd1VnVm9hcGkxMVhwd2NSeVhpUlZOY2ltMHo3ZVcxUmhvdTRmczF8ZHB3V3JNTko1RjFGMTAvMm8wZCsyU05hQVBrUlRYa0h3ZXdTZHprTDZ3Zz0=/8';
+import { getStore } from '@netlify/blobs';
+import crypto from 'node:crypto';
+
+const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 export default async (req) => {
   if (req.method !== 'POST') {
@@ -8,24 +11,29 @@ export default async (req) => {
   let email = '';
   try {
     const body = await req.json();
-    email = String(body.email || '').trim();
+    email = String(body.email || '').trim().toLowerCase();
   } catch {
     return Response.json({ ok: false, error: 'invalid_body' }, { status: 400 });
   }
 
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+  if (!EMAIL_RE.test(email)) {
     return Response.json({ ok: false, error: 'invalid_email' }, { status: 400 });
   }
 
-  try {
-    const res = await fetch(FOLLOWIT_URL, {
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ email }).toString(),
-      redirect: 'manual'
+  const store = getStore('newsletter');
+  const key = `sub:${email}`;
+  const existing = await store.get(key, { type: 'json' }).catch(() => null);
+
+  if (!existing || existing.status !== 'active') {
+    const token = existing?.token || crypto.randomUUID();
+    await store.setJSON(key, {
+      email,
+      status: 'active',
+      subscribedAt: new Date().toISOString(),
+      token
     });
-    return Response.json({ ok: res.status >= 200 && res.status < 400 });
-  } catch {
-    return Response.json({ ok: false, error: 'upstream_error' }, { status: 502 });
+    await store.setJSON(`token:${token}`, { email });
   }
+
+  return Response.json({ ok: true });
 };
