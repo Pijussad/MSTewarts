@@ -154,7 +154,7 @@
               });
               const data = await res.json().catch(function () { return {}; });
               if (!res.ok || !data.ok) throw new Error('failed');
-              form.innerHTML = '<div style="padding:24px;text-align:center;font-family:Arial,sans-serif;color:#000;background:#f6f2ff;border-radius:6px;"><strong>Almost there!</strong><br>Check your inbox and click the confirmation link.</div>';
+              form.innerHTML = '<div style="padding:24px;text-align:center;font-family:Arial,sans-serif;color:#000;background:#f6f2ff;border-radius:6px;"><strong>You&rsquo;re subscribed!</strong><br>New posts will land in your inbox. If follow.it asks you to confirm, click the link in that email.</div>';
             } catch (err) {
               if (button) { button.disabled = false; button.textContent = original; }
               alert('Subscription failed. Please try again.');
