@@ -144,6 +144,27 @@ title: "{{ title }}"
       imageInput.style.display = 'none';
     }
   }
+  function makeEmailOptional() {
+    var submit = document.querySelector('#twikoo .tk-submit');
+    var vm = submit && submit.__vue__;
+    var configVm = vm;
+    while (configVm && !configVm.config) configVm = configVm.$parent;
+    if (!configVm || !configVm.config) return;
+    var changed = false;
+    var required = configVm.config.REQUIRED_FIELDS;
+    var displayed = configVm.config.DISPLAYED_FIELDS;
+    if (!Array.isArray(required) || required.join(',') !== 'nick') {
+      configVm.$set(configVm.config, 'REQUIRED_FIELDS', ['nick']);
+      changed = true;
+    }
+    if (!Array.isArray(displayed) || displayed.join(',') !== 'nick') {
+      configVm.$set(configVm.config, 'DISPLAYED_FIELDS', ['nick']);
+      changed = true;
+    }
+    if (!changed) return;
+    configVm.$forceUpdate();
+    if (vm && vm !== configVm) vm.$forceUpdate();
+  }
   function initTwikoo() {
     if (!window.twikoo) return;
     twikoo.init({
@@ -151,10 +172,12 @@ title: "{{ title }}"
       el: '#twikoo',
       requiredFields: ['nick'],
       placeholder: 'Leave your thoughts here... 💭',
-      onCommentLoaded: hideTwikooMeta
+      onCommentLoaded: function () { hideTwikooMeta(); makeEmailOptional(); }
     });
     hideTwikooMeta();
-    setTimeout(hideTwikooMeta, 1200);
+    makeEmailOptional();
+    setTimeout(function () { hideTwikooMeta(); makeEmailOptional(); }, 1200);
+    setTimeout(makeEmailOptional, 2600);
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initTwikoo);
@@ -163,7 +186,7 @@ title: "{{ title }}"
   }
   var twikooRoot = document.getElementById('twikoo');
   if (twikooRoot) {
-    new MutationObserver(hideTwikooMeta).observe(twikooRoot, { childList: true, subtree: true });
+    new MutationObserver(function () { hideTwikooMeta(); makeEmailOptional(); }).observe(twikooRoot, { childList: true, subtree: true });
   }
 </script>
 
